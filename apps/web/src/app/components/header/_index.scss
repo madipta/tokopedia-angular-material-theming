@@ -1,0 +1,24 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+@use './info-bar/' as infoBar;
+@use './primary-bar/' as primaryBar;
+
+@mixin color($theme) {
+  $color-config: mat.get-color-config($theme);
+  $background-color-palette: map.get($color-config, background);
+
+  @include infoBar.color($theme);
+  @include primaryBar.color($theme);
+
+  tp-header {
+    background-color: mat.get-color-from-palette(
+      $background-color-palette,
+      app-bar
+    );
+    left: 0px;
+    position: fixed;
+    right: 0px;
+    top: 0px;
+    z-index: 10;
+  }
+}

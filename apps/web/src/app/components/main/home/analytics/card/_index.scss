@@ -1,0 +1,49 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+
+@mixin color($theme) {
+  $color-config: mat.get-color-config($theme);
+  $foreground-color-palette: map.get($color-config, foreground);
+  $accent-color-palette: map.get($color-config, accent);
+
+  tp-analytic-card {
+    cursor: pointer;
+
+    > mat-card {
+      border-bottom: 3px solid transparent;
+      height: 100%;
+      margin-right: 8px;
+
+      &.selected {
+        border-bottom: 4px solid
+          mat.get-color-from-palette($accent-color-palette, 400);
+      }
+
+      > mat-card-title.mat-card-title {
+        color: mat.get-color-from-palette($foreground-color-palette, text);
+        font-size: 0.94rem;
+        font-weight: 600;
+        margin: 0 0 8px;
+      }
+
+      > mat-card-subtitle.mat-card-subtitle {
+        color: mat.get-color-from-palette($foreground-color-palette, hint-text);
+        font-size: 0.8rem;
+        margin-bottom: 8px;
+        padding-right: 24px;
+        position: relative;
+
+        fa-icon.info-icon {
+          font-size: 0.94rem;
+          position: absolute;
+          right: 0px;
+          top: 0px;
+        }
+      }
+    }
+  }
+
+  .tp-tooltip {
+    font-size: 0.8rem;
+  }
+}

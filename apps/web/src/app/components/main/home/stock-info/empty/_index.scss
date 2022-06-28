@@ -1,0 +1,56 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+
+@mixin color($theme) {
+  $color-config: mat.get-color-config($theme);
+  $foreground-color-palette: map.get($color-config, foreground);
+  $warn-color-palette: map.get($color-config, warn);
+
+  tp-stock-info-empty {
+    > mat-card {
+      height: 100%;
+
+      > mat-card-actions {
+        text-align: right;
+      }
+
+      > mat-card-title.mat-card-title {
+        color: mat.get-color-from-palette($foreground-color-palette, text);
+        font-size: 0.94rem;
+        font-weight: 600;
+        margin: 0 0 16px;
+      }
+
+      > mat-card-content.mat-card-content {
+        height: 240px;
+        overflow: auto;
+      }
+
+      th.mat-header-cell {
+        &.mat-column-name {
+          padding-left: 6px;
+          text-align: left;
+        }
+        &.mat-column-stock {
+          padding-right: 6px;
+          text-align: center;
+        }
+      }
+
+      td.mat-cell {
+        &.mat-column-name, &.mat-column-stock {
+          padding: 2px 6px;
+        }
+        &.mat-column-stock {
+          color: mat.get-color-from-palette($warn-color-palette, 600);
+          font-weight: 600;
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  .activity-tooltip {
+    font-size: 0.8rem;
+  }
+}

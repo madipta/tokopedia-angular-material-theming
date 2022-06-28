@@ -1,0 +1,34 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+@use './activities/' as activities;
+@use './analytics/' as analytics;
+@use './performances/' as performances;
+@use './stock-info/' as stockInfo;
+@use './updates/' as updates;
+@use './utilities/' as utilities;
+
+@mixin color($theme) {
+  $color-config: mat.get-color-config($theme);
+  $foreground-color-palette: map.get($color-config, foreground);
+
+  @include activities.color($theme);
+  @include analytics.color($theme);
+  @include performances.color($theme);
+  @include stockInfo.color($theme);
+  @include updates.color($theme);
+  @include utilities.color($theme);
+
+  tp-home {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 16px;
+    grid-auto-flow: row;
+
+    > section.main {
+      border-right: 1px solid
+        mat.get-color-from-palette($foreground-color-palette, divider);
+      padding-right: 16px;
+    }
+  }
+}

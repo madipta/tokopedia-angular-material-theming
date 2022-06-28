@@ -1,0 +1,16 @@
+@use './flash-sale/' as flashSale;
+@use './promo/' as promo;
+
+@mixin color($theme) {
+  @include flashSale.color($theme);
+  @include promo.color($theme);
+
+  tp-campaign {
+    margin-bottom: 16px;
+
+    mat-card-title.mat-card-title {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+  }
+}

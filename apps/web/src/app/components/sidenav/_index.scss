@@ -1,0 +1,90 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+@use './menu' as sidenavMenu;
+@use './saldo/' as sidenavSaldo;
+@use './shop-info/' as sidenavShopInfo;
+
+@mixin color($theme) {
+  $color-config: mat.get-color-config($theme);
+  $background-color-palette: map.get($color-config, background);
+  $foreground-color-palette: map.get($color-config, foreground);
+
+  @include sidenavMenu.color($theme);
+  @include sidenavSaldo.color($theme);
+  @include sidenavShopInfo.color($theme);
+
+  $tp-sidenav-max-width: 247px;
+  $tp-sidenav-min-width: 90px;
+  $tp-sidenav-top: 96px;
+
+  tp-sidenav {
+    overflow: hidden;
+    transition: width 0.3s ease 0.1s;
+    width: $tp-sidenav-max-width;
+    z-index: 1000;
+
+    &.max {
+      width: $tp-sidenav-max-width;
+
+      nav.sidenav {
+        width: $tp-sidenav-max-width;
+      }
+    }
+
+    &.min {
+      width: $tp-sidenav-min-width;
+
+      nav.sidenav {
+        width: $tp-sidenav-min-width;
+      }
+    }
+
+    nav.sidenav {
+      background: mat.get-color-from-palette(
+        $background-color-palette,
+        app-bar
+      );
+      bottom: 0px;
+      display: flex;
+      flex-direction: column;
+      left: 0px;
+      overflow-x: hidden;
+      overflow-y: visible;
+      position: fixed;
+      top: $tp-sidenav-top;
+      transition: width 0.3s ease;
+      width: $tp-sidenav-max-width;
+    }
+
+    button.toggle {
+      color: mat.get-color-from-palette($foreground-color-palette, hint-text);
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin: 5px 0;
+
+      .toggle-icon {
+        display: inline-block;
+        height: 1rem;
+        line-height: 1rem;
+        transition: transform 0.3s ease 0.2s;
+
+        &.hide {
+          transform: rotate(180deg);
+        }
+      }
+
+      .menu-text {
+        overflow: hidden;
+        display: inline-block;
+        margin-left: 8px;
+        opacity: 1;
+        transition: opacity 0.3s ease;
+      }
+
+      .menu-text.hide {
+        opacity: 0;
+        width: 0;
+      }
+    }
+  }
+}

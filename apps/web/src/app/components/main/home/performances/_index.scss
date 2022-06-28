@@ -1,0 +1,100 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+
+@mixin color($theme) {
+  $color-config: mat.get-color-config($theme);
+  $accent-color-palette: map.get($color-config, accent);
+  $foreground-color-palette: map.get($color-config, foreground);
+  $warn-color-palette: map.get($color-config, warn);
+
+  tp-performances {
+    display: flex;
+    margin-bottom: 32px;
+
+    mat-card.outer-card {
+      display: block;
+      width: 100%;
+
+      > mat-card-actions.mat-card-actions {
+        text-align: right;
+      }
+
+      > mat-card-title.mat-card-title {
+        color: mat.get-color-from-palette($foreground-color-palette, text);
+        font-size: 0.94rem;
+        font-weight: 600;
+        margin: 0 0 16px;
+      }
+
+      > mat-card-content.mat-card-content {
+        display: flex;
+        gap: 24px;
+        margin-bottom: 6px;
+
+        mat-card.inner-card {
+          min-width: 180px;
+
+          > mat-card-content.mat-card-content {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+
+            section.level {
+              color: mat.get-color-from-palette(
+                $foreground-color-palette,
+                text
+              );
+              font-size: 0.8rem;
+              font-weight: 600;
+            }
+
+            section.score {
+              color: mat.get-color-from-palette(
+                $foreground-color-palette,
+                secondary-text
+              );
+              font-size: 1.5rem;
+              font-weight: 600;
+
+              h5 {
+                font-size: .8rem;
+              }
+            }
+          }
+        }
+
+        section.tips {
+          h5 {
+            color: mat.get-color-from-palette($foreground-color-palette, text);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin: 0 0 16px;
+          }
+
+          ul {
+            list-style: none;
+            margin: 0 0 0 24px;
+            padding: 0;
+
+            li {
+              display: flex;
+              font-size: 0.76rem;
+              line-height: 1.1rem;
+              margin: 12px 0;
+
+              fa-icon.tips-icon {
+                color: mat.get-color-from-palette($accent-color-palette, 200);
+                font-size: 1rem;
+                width: 1.6rem;
+
+                &.danger {
+                  color: mat.get-color-from-palette($warn-color-palette);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

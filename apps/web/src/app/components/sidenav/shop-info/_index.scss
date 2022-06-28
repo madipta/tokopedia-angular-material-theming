@@ -1,0 +1,164 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+
+@mixin color($theme) {
+  $color-config: mat.get-color-config($theme);
+  $accent-color-palette: map.get($color-config, accent);
+  $foreground-color-palette: map.get($color-config, foreground);
+  $primary-color-palette: map.get($color-config, primary);
+
+  tp-shop-info {
+    border-top: 1px solid
+      mat.get-color-from-palette($foreground-color-palette, divider);
+    display: flex;
+    flex-direction: column;
+    padding: 16px 12px 8px 12px;
+
+    &.min {
+      align-items: center;
+    }
+
+    .logo {
+      flex: none;
+      border-radius: 50%;
+      box-shadow: 0 0 10px 0
+        mat.get-color-from-palette($foreground-color-palette, divider);
+      overflow: hidden;
+      height: 48px;
+      width: 48px;
+
+      .shop-icon {
+        color: mat.get-color-from-palette($foreground-color-palette, icon);
+        font-size: 24px;
+
+        & > svg {
+          height: 32px;
+          margin: 8px;
+          width: 32px;
+        }
+      }
+    }
+
+    .shop-link {
+      align-content: center;
+      display: flex;
+
+      &.minimize {
+        .info {
+          display: none;
+        }
+      }
+
+      .info {
+        flex: 1 1 0%;
+        margin-left: 8px;
+
+        .name {
+          color: mat.get-color-from-palette($foreground-color-palette, text);
+          font-weight: 600;
+          padding-top: 4px;
+        }
+
+        .points {
+          color: mat.get-color-from-palette(
+            $foreground-color-palette,
+            secondary-text
+          );
+          display: flex;
+          font-size: 0.8rem;
+
+          fa-icon {
+            font-size: 14px;
+            height: 14px;
+            width: 14px;
+          }
+
+          .star-icon {
+            color: mat.get-color-from-palette($accent-color-palette);
+          }
+
+          .followers-icon {
+            margin-right: 12px;
+          }
+
+          .divider {
+            border-right: 1px solid
+              mat.get-color-from-palette($foreground-color-palette, divider);
+            margin: 0 12px;
+            overflow: hidden;
+            width: 0px;
+          }
+        }
+      }
+    }
+
+    .merchant {
+      border: 1px solid
+        mat.get-color-from-palette($foreground-color-palette, divider);
+      border-radius: 8px;
+      color: mat.get-color-from-palette($foreground-color-palette, text);
+      font-size: .7rem;
+      margin-top: 16px;
+
+      .status {
+        border-bottom: 1px solid
+          mat.get-color-from-palette($foreground-color-palette, divider);
+        display: flex;
+        font-weight: 600;
+        justify-content: space-between;
+        padding: 4px 8px;
+      }
+
+      .trans {
+        color: mat.get-color-from-palette(
+          $foreground-color-palette,
+          secondary-text
+        );
+        display: flex;
+        justify-content: space-between;
+        padding: 4px 8px;
+      }
+    }
+
+    .hours {
+      align-content: center;
+      border-bottom: 1px solid
+        mat.get-color-from-palette($foreground-color-palette, divider);
+      display: flex;
+      justify-content: space-between;
+      padding: 16px 0;
+
+      h4 {
+        background-color: mat.get-color-from-palette(
+          $primary-color-palette,
+          100
+        );
+        border-radius: 2px;
+        color: mat.get-color-from-palette($primary-color-palette, 800);
+        font-size: 0.78rem;
+        font-weight: 600;
+        line-height: 1rem;
+        margin: 0;
+        padding: 4px 10px;
+      }
+
+      span {
+        align-content: center;
+        display: flex;
+
+        fa-icon {
+          color: mat.get-color-from-palette($foreground-color-palette, icon);
+          font-size: 0.8rem;
+          width: 1rem;
+        }
+
+        a {
+          color: mat.get-color-from-palette($foreground-color-palette, text);
+          font-size: 0.7rem;
+          font-weight: 600;
+          margin-left: 5px;
+        }
+      }
+    }
+  }
+}

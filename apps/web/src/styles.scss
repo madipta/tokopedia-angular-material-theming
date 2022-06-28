@@ -1,0 +1,98 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+@use './app/' as app;
+
+$my-primary-palette: mat.define-palette(mat.$green-palette);
+$my-accent-palette: mat.define-palette(mat.$orange-palette, 700);
+$my-warn-palette: mat.define-palette(mat.$red-palette);
+$my-typography: mat.define-typography-config(
+  $font-family: "'Roboto Flex', sans-serif",
+);
+
+$light-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $my-primary-palette,
+      accent: $my-accent-palette,
+      warn: $my-warn-palette,
+    ),
+    typography: $my-typography,
+  )
+);
+
+$dark-theme: mat.define-dark-theme(
+  (
+    color: (
+      primary: $my-primary-palette,
+      accent: $my-accent-palette,
+      warn: $my-warn-palette,
+    ),
+    typography: $my-typography,
+  )
+);
+
+@mixin app-theme($theme) {
+  @include app.color($theme);
+}
+
+body {
+  $color-config: mat.get-color-config($light-theme);
+  $background-color-palette: map.get($color-config, background);
+  $foreground-color-palette: map.get($color-config, foreground);
+
+  background: mat.get-color-from-palette($background-color-palette, background);
+  color: mat.get-color-from-palette($foreground-color-palette, text);
+}
+
+@include mat.core();
+@include mat.button-theme($light-theme);
+@include mat.card-theme($light-theme);
+@include mat.datepicker-theme($light-theme);
+@include mat.form-field-theme($light-theme);
+@include mat.icon-theme($light-theme);
+@include mat.select-theme($light-theme);
+@include mat.table-theme($light-theme);
+@include mat.tabs-theme($light-theme);
+@include mat.toolbar-theme($light-theme);
+@include mat.tooltip-theme($light-theme);
+@include app-theme($light-theme);
+
+.dark-theme {
+  @include mat.button-color($dark-theme);
+  @include mat.card-color($dark-theme);
+  @include mat.datepicker-color($dark-theme);
+  @include mat.form-field-color($dark-theme);
+  @include mat.icon-color($dark-theme);
+  @include mat.select-color($dark-theme);
+  @include mat.table-color($dark-theme);
+  @include mat.tabs-color($dark-theme);
+  @include mat.toolbar-color($dark-theme);
+  @include mat.tooltip-color($dark-theme);
+  @include app-theme($dark-theme);
+
+  $color-config: mat.get-color-config($dark-theme);
+  $background-color-palette: map.get($color-config, background);
+  $foreground-color-palette: map.get($color-config, foreground);
+
+  background: mat.get-color-from-palette($background-color-palette, background);
+  color: mat.get-color-from-palette($foreground-color-palette, text);
+}
+
+html,
+body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+:not(input, textarea) {
+  user-select: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+*:focus {
+  outline: none;
+}
