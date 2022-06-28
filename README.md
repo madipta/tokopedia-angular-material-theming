@@ -1,7 +1,6 @@
-# tokopedia seller dashboard clone (light/dark theme)
+# tokopedia seller home dashboard clone (light/dark theme)
 
 this project built with nx monorepo, angular material, fort-awesome and ngrx  
-
 
 ![light theme](https://raw.githubusercontent.com/madipta/tokopedia-angular-material-theming/main/screen_shot/light-theme.png)  
 
