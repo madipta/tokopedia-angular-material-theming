@@ -40,6 +40,7 @@ import { SaldoComponent } from './components/sidenav/saldo/saldo.component';
 import { ShopInfoComponent } from './components/sidenav/shop-info/shop-info.component';
 import { SideNavComponent } from './components/sidenav/sidenav.component';
 import { SharedMaterialModule } from './shared/shared-material.module';
+import { ChatToolbarComponent } from './components/chat-toolbar/chat-toolbar.component';
 
 @NgModule({
   declarations: [
@@ -72,6 +73,7 @@ import { SharedMaterialModule } from './shared/shared-material.module';
     StockInfoComponent,
     UpdatesComponent,
     UtilitiesComponent,
+    ChatToolbarComponent,
   ],
   imports: [
     BrowserModule,
