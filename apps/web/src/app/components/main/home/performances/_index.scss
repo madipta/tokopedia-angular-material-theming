@@ -15,18 +15,7 @@
       display: block;
       width: 100%;
 
-      > mat-card-actions.mat-card-actions {
-        text-align: right;
-      }
-
-      > mat-card-title.mat-card-title {
-        color: mat.get-color-from-palette($foreground-color-palette, text);
-        font-size: 0.94rem;
-        font-weight: 600;
-        margin: 0 0 16px;
-      }
-
-      > mat-card-content.mat-card-content {
+      > mat-card-content.mat-mdc-card-content {
         display: flex;
         gap: 24px;
         margin-bottom: 6px;
@@ -34,10 +23,7 @@
         mat-card.inner-card {
           min-width: 180px;
 
-          > mat-card-content.mat-card-content {
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
+          > mat-card-content.mat-mdc-card-content {
 
             section.level {
               color: mat.get-color-from-palette(

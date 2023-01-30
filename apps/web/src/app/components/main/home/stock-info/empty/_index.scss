@@ -10,23 +10,12 @@
     > mat-card {
       height: 100%;
 
-      > mat-card-actions {
-        text-align: right;
-      }
-
-      > mat-card-title.mat-card-title {
-        color: mat.get-color-from-palette($foreground-color-palette, text);
-        font-size: 0.94rem;
-        font-weight: 600;
-        margin: 0 0 16px;
-      }
-
-      > mat-card-content.mat-card-content {
+      > mat-card-content {
         height: 240px;
         overflow: auto;
       }
 
-      th.mat-header-cell {
+      th.mat-mdc-header-cell {
         &.mat-column-name {
           padding-left: 6px;
           text-align: left;
@@ -37,7 +26,7 @@
         }
       }
 
-      td.mat-cell {
+      td.mat-mdc-cell {
         &.mat-column-name, &.mat-column-stock {
           padding: 2px 6px;
         }

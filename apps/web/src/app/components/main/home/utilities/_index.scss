@@ -29,6 +29,7 @@
     h4.subtitle {
       color: mat.get-color-from-palette($foreground-color-palette, secondary-text);
       font-size: .86rem;
+      margin-bottom: 16px;
     }
   }
 }

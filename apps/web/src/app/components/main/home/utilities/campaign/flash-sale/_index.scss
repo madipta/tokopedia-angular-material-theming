@@ -11,12 +11,14 @@
     display: flex;
     flex-direction: column;
     gap: 16px;
-    margin: 16px 0;
+    margin: 16px;
+    overflow: hidden;
 
     > div.flash-sale-row {
       align-items: center;
       display: flex;
       gap: 16px;
+      padding-top: 16px;
 
       > fa-icon {
         color: mat.get-color-from-palette($primary-color-palette);

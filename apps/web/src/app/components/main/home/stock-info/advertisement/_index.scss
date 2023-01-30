@@ -6,23 +6,14 @@
   $foreground-color-palette: map.get($color-config, foreground);
 
   tp-stock-info-adv {
-    > mat-card.mat-card {
-      display: flex;
-      flex-direction: column;
+    > mat-card {
       height: 100%;
 
-      > mat-card-actions {
-        text-align: center;
+      > mat-card-actions.mat-mdc-card-actions {
+        justify-content: center;
       }
 
-      > mat-card-title.mat-card-title {
-        color: mat.get-color-from-palette($foreground-color-palette, text);
-        font-size: 0.94rem;
-        font-weight: 600;
-        margin: 0 0 16px;
-      }
-
-      > mat-card-content.mat-card-content {
+      > mat-card-content {
         align-items: center;
         display: flex;
         flex-direction: column;

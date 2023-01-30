@@ -12,7 +12,7 @@ import {
       <mat-card-content>
         <div class="header">
           <h4 class="title">Bacaan terkini</h4>
-          <mat-form-field appearance="legacy">
+          <mat-form-field>
             <mat-select value="1">
               <mat-option value="1">Artikel</mat-option>
               <mat-option value="2">Info</mat-option>

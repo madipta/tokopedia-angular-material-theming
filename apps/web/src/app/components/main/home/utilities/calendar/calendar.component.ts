@@ -7,7 +7,7 @@ import { Component, ViewEncapsulation } from '@angular/core';
       <mat-card-content>
         <div class="header">
           <h4 class="title">Kalender event</h4>
-          <mat-form-field appearance="legacy">
+          <mat-form-field>
             <mat-label></mat-label>
             <mat-date-range-input [rangePicker]="picker">
               <input matStartDate placeholder="Start date" [value]="start" />

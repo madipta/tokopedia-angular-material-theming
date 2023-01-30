@@ -5,9 +5,6 @@
 $my-primary-palette: mat.define-palette(mat.$green-palette);
 $my-accent-palette: mat.define-palette(mat.$orange-palette, 700);
 $my-warn-palette: mat.define-palette(mat.$red-palette);
-$my-typography: mat.define-typography-config(
-  $font-family: "'Roboto Flex', sans-serif",
-);
 
 $light-theme: mat.define-light-theme(
   (
@@ -15,8 +12,7 @@ $light-theme: mat.define-light-theme(
       primary: $my-primary-palette,
       accent: $my-accent-palette,
       warn: $my-warn-palette,
-    ),
-    typography: $my-typography,
+    )
   )
 );
 
@@ -26,8 +22,7 @@ $dark-theme: mat.define-dark-theme(
       primary: $my-primary-palette,
       accent: $my-accent-palette,
       warn: $my-warn-palette,
-    ),
-    typography: $my-typography,
+    )
   )
 );
 
@@ -42,6 +37,7 @@ body {
 
   background: mat.get-color-from-palette($background-color-palette, background);
   color: mat.get-color-from-palette($foreground-color-palette, text);
+  font-family: 'Roboto Flex', sans-serif;
 }
 
 @include mat.core();
@@ -91,8 +87,14 @@ body {
 
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 *:focus {
   outline: none;
+}
+
+ul, li {
+  list-style: none;
 }

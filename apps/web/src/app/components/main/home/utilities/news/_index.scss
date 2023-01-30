@@ -11,11 +11,7 @@
     flex-direction: column;
     margin-bottom: 16px;
 
-    mat-card.mat-card {
-      padding-top: 0;
-    }
-
-    mat-card-content.mat-card-content {
+    mat-card-content.mat-mdc-card-content {
       > div.header {
         align-items: center;
         display: flex;
@@ -53,6 +49,7 @@
             mat.get-color-from-palette($foreground-color-palette, divider);
           display: flex;
           gap: 16px;
+          margin: 0 16px;
           padding: 16px 0;
 
           &:last-child {
@@ -61,7 +58,7 @@
 
           div.image {
             color: mat.get-color-from-palette($primary-color-palette);
-            font-size: 2rem;
+            font-size: 3rem;
           }
 
           div.description {

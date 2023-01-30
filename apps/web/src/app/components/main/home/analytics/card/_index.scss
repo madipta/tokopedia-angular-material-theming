@@ -9,7 +9,7 @@
   tp-analytic-card {
     cursor: pointer;
 
-    > mat-card {
+    > mat-card.mat-mdc-card {
       border-bottom: 3px solid transparent;
       height: 100%;
       margin-right: 8px;
@@ -19,19 +19,9 @@
           mat.get-color-from-palette($accent-color-palette, 400);
       }
 
-      > mat-card-title.mat-card-title {
-        color: mat.get-color-from-palette($foreground-color-palette, text);
-        font-size: 0.94rem;
-        font-weight: 600;
-        margin: 0 0 8px;
-      }
-
-      > mat-card-subtitle.mat-card-subtitle {
-        color: mat.get-color-from-palette($foreground-color-palette, hint-text);
-        font-size: 0.8rem;
+      > mat-card-subtitle.mat-mdc-card-subtitle {
         margin-bottom: 8px;
         padding-right: 24px;
-        position: relative;
 
         fa-icon.info-icon {
           font-size: 0.94rem;

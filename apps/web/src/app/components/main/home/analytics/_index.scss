@@ -32,28 +32,17 @@
       padding: 0;
     }
 
-    > mat-card.outer-card {
-      > mat-card-title {
-        color: mat.get-color-from-palette($foreground-color-palette, text);
-        font-size: 0.94rem;
-        font-weight: 600;
-        margin: 0 0 16px;
-      }
+    section.product {
+      display: grid;
+      grid-auto-rows: 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 4px;
+      width: 90%;
+    }
 
-      > mat-card-content {
-        section.product {
-          display: grid;
-          grid-auto-rows: 1fr;
-          grid-template-columns: 1fr 1fr 1fr;
-          gap: 4px;
-          width: 90%;
-        }
-
-        section.stats-chart {
-          margin-top: 24px;
-          position: relative;
-        }
-      }
+    section.stats-chart {
+      margin-top: 24px;
+      position: relative;
     }
   }
 

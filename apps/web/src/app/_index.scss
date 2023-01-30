@@ -16,6 +16,42 @@
   @include home.color($theme);
   @include sidenav.color($theme);
 
+  mat-card.mat-mdc-card {
+    padding: 16px;
+    position: relative;
+  }
+
+  mat-card-title.mat-mdc-card-title {
+    color: mat.get-color-from-palette($foreground-color-palette, text);
+    font-size: 0.94rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+    position: relative;
+  }
+  
+  mat-card-subtitle.mat-mdc-card-subtitle {
+    color: mat.get-color-from-palette($foreground-color-palette, hint-text);
+    font-size: 0.8rem;
+    position: relative;
+  }
+
+  mat-card-content.mat-mdc-card-content {
+    margin: 0;
+    padding: 0;
+    position: relative;
+
+    &:last-child, &:first-child {
+      padding: 0;
+    }
+  }
+  
+  mat-card-actions.mat-mdc-card-actions {
+    justify-content: end;
+    margin-top: 16px;
+    min-height: 0;
+    padding: 0;
+  }
+
   tp-root {
     > section.main {
       display: flex;

@@ -8,6 +8,8 @@
   tp-promo {
     display: flex;
     flex-direction: column;
+    margin: 16px;
+    overflow: hidden;
 
     > div.spacer {
       flex: 1 1 0%;
