@@ -1,8 +1,0 @@
-{
-  "version": 2,
-  "projects": {
-    "ui-app-state": "libs/ui/app-state",
-    "web": "apps/web",
-    "web-e2e": "apps/web-e2e"
-  }
-}
