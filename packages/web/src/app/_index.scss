@@ -1,9 +1,12 @@
 @use 'sass:map';
 @use '@angular/material' as mat;
-@use './components/chat-toolbar/' as chat-toolbar;
-@use './components/header/' as header;
+@use 'chat-toolbar.component' as chat-toolbar;
+@use 'info-bar.component' as infoBar;
+@use 'primary-bar.component' as primaryBar;
 @use './components/main/home/' as home;
-@use './components/sidenav/' as sidenav;
+@use 'sidenav.component' as sidenav;
+@use 'sidenav-menu-item.component' as sidenavMenuItem;
+@use './components/menu/' as menu;
 
 @mixin color($theme) {
   $color-config: mat.get-color-config($theme);
@@ -12,9 +15,12 @@
   $primary-color-palette: map.get($color-config, primary);
 
   @include chat-toolbar.color($theme);
-  @include header.color($theme);
+  @include infoBar.color($theme);
+  @include primaryBar.color($theme);
   @include home.color($theme);
   @include sidenav.color($theme);
+  @include sidenavMenuItem.color($theme);
+  @include menu.color($theme);
 
   mat-card.mat-mdc-card {
     padding: 16px;
@@ -28,7 +34,7 @@
     margin-bottom: 16px;
     position: relative;
   }
-  
+
   mat-card-subtitle.mat-mdc-card-subtitle {
     color: mat.get-color-from-palette($foreground-color-palette, hint-text);
     font-size: 0.8rem;
@@ -40,11 +46,12 @@
     padding: 0;
     position: relative;
 
-    &:last-child, &:first-child {
+    &:last-child,
+    &:first-child {
       padding: 0;
     }
   }
-  
+
   mat-card-actions.mat-mdc-card-actions {
     justify-content: end;
     margin-top: 16px;
@@ -53,6 +60,18 @@
   }
 
   tp-root {
+    > header {
+      background-color: mat.get-color-from-palette(
+        $background-color-palette,
+        app-bar
+      );
+      left: 0px;
+      position: fixed;
+      right: 0px;
+      top: 0px;
+      z-index: 10;
+    }
+    
     > section.main {
       display: flex;
       padding-top: 90px;
@@ -62,23 +81,6 @@
         min-height: 100vh;
         padding: 32px 16px;
       }
-    }
-
-    > section.footer {
-      background-color: mat.get-color-from-palette(
-        $background-color-palette,
-        background
-      );
-      border-bottom: 3px solid
-        mat.get-color-from-palette($primary-color-palette, text);
-      border-radius: 8px 8px 0 0;
-      bottom: 0px;
-      box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
-        0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
-      overflow: hidden;
-      padding: 4px 8px;
-      position: fixed;
-      right: 70px;
     }
   }
 }

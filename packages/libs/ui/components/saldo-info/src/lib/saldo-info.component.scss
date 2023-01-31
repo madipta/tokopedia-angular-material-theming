@@ -1,0 +1,40 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+
+@mixin color($theme) {
+  $color-config: mat.get-color-config($theme);
+  $foreground-color-palette: map.get($color-config, foreground);
+
+  ui-sidenav-saldo-info {
+    border-bottom: 1px solid
+      mat.get-color-from-palette($foreground-color-palette, divider);
+    color: mat.get-color-from-palette($foreground-color-palette, secondary-text);
+    display: flex;
+    flex-direction: column;
+    padding: 8px 12px 16px;
+
+    .saldo {
+      align-content: center;
+      display: flex;
+      font-size: 0.72rem;
+      justify-content: space-between;
+      line-height: normal;
+      padding: 6px 0;
+
+      &:first-child {
+        margin-bottom: 2px;
+      }
+
+      h4 {
+        font-size: 0.72rem;
+        line-height: normal;
+        margin: 0;
+        padding: 0;
+      }
+
+      span {
+        font-weight: 600;
+      }
+    }
+  }
+}

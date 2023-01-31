@@ -1,0 +1,62 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+
+@mixin color($theme) {
+  $color-config: mat.get-color-config($theme);
+  $background-color-palette: map.get($color-config, background);
+  $foreground-color-palette: map.get($color-config, foreground);
+
+  ui-search-panel {
+    align-items: center;
+    display: flex;
+    flex: 1 1 0%;
+    margin: 0 72px;
+
+    form {
+      border: 1px solid
+        mat.get-color-from-palette($foreground-color-palette, divider);
+      border-radius: 6px;
+      display: flex;
+      flex: 1 1 0%;
+      overflow: hidden;
+
+      input[type='search'] {
+        background-color: mat.get-color-from-palette(
+          $background-color-palette,
+          background
+        );
+        border: none;
+        color: mat.get-color-from-palette(
+          $foreground-color-palette,
+          text
+        );
+        flex: 1 1 0%;
+        padding: 8px 0;
+        text-indent: 16px;
+
+        &::placeholder {
+          color: mat.get-color-from-palette(
+            $foreground-color-palette,
+            secondary-text
+          );
+        }
+      }
+
+      button.search-button {
+        background-color: mat.get-color-from-palette(
+          $background-color-palette,
+          app-bar
+        );
+        border-left: 1px solid mat.get-color-from-palette($foreground-color-palette, divider);
+        border-bottom-left-radius: 0;
+        border-top-left-radius: 0;
+        min-width: 0;
+        padding: 0 12px;
+      }
+
+      fa-icon {
+        font-size: 1.14rem;
+      }
+    }
+  }
+}

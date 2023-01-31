@@ -1,0 +1,44 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+@use './menu-panel' as menuPanel;
+@use './search-panel' as searchPanel;
+
+@mixin color($theme) {
+  $color-config: mat.get-color-config($theme);
+  $foreground-color-palette: map.get($color-config, foreground);
+  $primary-color-palette: map.get($color-config, primary);
+
+  @include menuPanel.color($theme);
+  @include searchPanel.color($theme);
+
+  ui-primary-bar {
+    box-shadow: mat.get-color-from-palette($foreground-color-palette, divider)
+      0 2px 6px 0;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0;
+
+    header {
+      align-items: center;
+      display: flex;
+      margin: 0 28px;
+
+      h1.logo {
+        color: mat.get-color-from-palette($primary-color-palette, text);
+        font-size: 1.8rem;
+        font-weight: 600;
+        margin: 0;
+        padding: 0;
+
+        span {
+          color: mat.get-color-from-palette(
+            $foreground-color-palette,
+            hint-text
+          );
+          font-size: 1.6rem;
+          font-weight: 100;
+        }
+      }
+    }
+  }
+}

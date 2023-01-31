@@ -1,33 +1,40 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Store } from '@ngrx/store';
+import { ChatToolbarComponent } from '@root/ui/components/chat-toolbar';
+import { InfoBarComponent } from '@root/ui/components/info-bar';
+import { PrimaryBarComponent } from '@root/ui/components/primary-bar';
 import { ThemesActions } from '@root/ui/app-state';
-import { ChatToolbarComponent } from './components/chat-toolbar/chat-toolbar.component';
-import { HeaderComponent } from './components/header/header.component';
-import { SideNavComponent } from './components/sidenav/sidenav.component';
+import { SideNavComponent } from '@root/ui/components/sidenav';
+import { SideNavMenuComponent } from './components/menu/menu.component';
 
 @Component({
-  imports: [
-    ChatToolbarComponent,
-    HeaderComponent,
-    RouterOutlet,
-    SideNavComponent,
-  ],
   selector: 'tp-root',
   standalone: true,
   template: `
+    <header>
+      <ui-info-bar></ui-info-bar>
+      <ui-primary-bar></ui-primary-bar>
+    </header>
     <section class="main">
-      <tp-header></tp-header>
-      <tp-sidenav></tp-sidenav>
+      <ui-sidenav>
+        <tp-sidenav-menu></tp-sidenav-menu>
+      </ui-sidenav>
       <main>
         <router-outlet></router-outlet>
       </main>
     </section>
-    <section class="footer">
-      <tp-chat-toolbar></tp-chat-toolbar>
-    </section>
+    <ui-chat-toolbar></ui-chat-toolbar>
   `,
   encapsulation: ViewEncapsulation.None,
+  imports: [
+    ChatToolbarComponent,
+    InfoBarComponent,
+    PrimaryBarComponent,
+    RouterOutlet,
+    SideNavComponent,
+    SideNavMenuComponent,
+  ],
 })
 export class AppComponent implements OnInit {
   constructor(private store: Store) {}

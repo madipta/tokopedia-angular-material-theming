@@ -15,7 +15,28 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@root/ui/app-state": ["packages/libs/ui/app-state/src/index.ts"]
+      "@root/ui/components/saldo-info": [
+        "packages/libs/ui/components/saldo-info/src/index.ts"
+      ],
+      "@root/ui/components/shop-info": [
+        "packages/libs/ui/components/shop-info/src/index.ts"
+      ],
+      "@root/ui/components/sidenav": [
+        "packages/libs/ui/components/sidenav/src/index.ts"
+      ],
+      "@root/ui/components/sidenav-menu-item": [
+        "packages/libs/ui/components/sidenav-menu-item/src/index.ts"
+      ],
+      "@root/ui/app-state": ["packages/libs/ui/app-state/src/index.ts"],
+      "@root/ui/components/chat-toolbar": [
+        "packages/libs/ui/components/chat-toolbar/src/index.ts"
+      ],
+      "@root/ui/components/info-bar": [
+        "packages/libs/ui/components/info-bar/src/index.ts"
+      ],
+      "@root/ui/components/primary-bar": [
+        "packages/libs/ui/components/primary-bar/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]

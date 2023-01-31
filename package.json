@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "ng": "nx",
-    "postinstall": "node ./decorate-angular-cli.js && ngcc --properties es2020 browser module main",
+    "postinstall": "ngcc --properties es2020 browser module main",
     "start": "nx serve",
     "build": "nx build",
     "test": "nx test"
@@ -31,7 +31,7 @@
     "@ngrx/store": "15.0.0",
     "chart.js": "^3.8.0",
     "rxjs": "~7.5.0",
-    "tslib": "^2.0.0",
+    "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },
   "workspaces": [

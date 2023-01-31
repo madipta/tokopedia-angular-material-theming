@@ -16,6 +16,17 @@
         "tsConfig": "packages/web/tsconfig.app.json",
         "assets": ["packages/web/src/favicon.ico", "packages/web/src/assets"],
         "styles": ["packages/web/src/styles.scss"],
+        "stylePreprocessorOptions": {
+          "includePaths": [
+            "packages/libs/ui/components/chat-toolbar/src/lib",
+            "packages/libs/ui/components/info-bar/src/lib",
+            "packages/libs/ui/components/primary-bar/src/lib",
+            "packages/libs/ui/components/saldo-info/src/lib",
+            "packages/libs/ui/components/shop-info/src/lib",
+            "packages/libs/ui/components/sidenav/src/lib",
+            "packages/libs/ui/components/sidenav-menu-item/src/lib"
+          ]
+        },
         "scripts": []
       },
       "configurations": {

@@ -1,0 +1,44 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+
+@mixin color($theme) {
+  $color-config: mat.get-color-config($theme);
+  $background-color-palette: map.get($color-config, background);
+  $foreground-color-palette: map.get($color-config, foreground);
+  $primary-color-palette: map.get($color-config, primary);
+
+  ui-chat-toolbar {
+    background-color: mat.get-color-from-palette(
+      $background-color-palette,
+      background
+    );
+    border-bottom: 3px solid
+      mat.get-color-from-palette($primary-color-palette, text);
+    border-radius: 8px 8px 0 0;
+    bottom: 0;
+    box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+      0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+    overflow: hidden;
+    padding: 4px 8px;
+    position: fixed;
+    right: 70px;
+
+    button.mat-button {
+      min-width: 0;
+    }
+
+    span.chat-text {
+      color: mat.get-color-from-palette($foreground-color-palette, secondary-text);
+      margin-left: 8px;
+    }
+
+    span.spacer {
+      color: mat.get-color-from-palette($foreground-color-palette, divider);
+    }
+
+    fa-icon {
+      color: mat.get-color-from-palette($foreground-color-palette, icon);
+      font-size: 1.1rem;
+    }
+  }
+}
