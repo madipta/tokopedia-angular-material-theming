@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import {
   Component,
   OnDestroy,
@@ -5,6 +6,7 @@ import {
   Renderer2,
   ViewEncapsulation,
 } from '@angular/core';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {
   faCamera,
   faMoon,
@@ -18,7 +20,9 @@ import { Subject } from 'rxjs';
 import { ThemesActions, ThemesSelectors } from '@root/ui/app-state';
 
 @Component({
+  imports: [CommonModule, FontAwesomeModule],
   selector: 'tp-info-bar',
+  standalone: true,
   template: `
     <nav>
       <ul class="left">

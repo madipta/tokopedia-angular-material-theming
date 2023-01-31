@@ -1,8 +1,11 @@
 import { Component, ViewEncapsulation } from '@angular/core';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faGifts, faClockFour } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
+  imports: [FontAwesomeModule],
   selector: 'tp-flash-sale',
+  standalone: true,
   template: `
     <div class="flash-sale-row">
       <fa-icon [icon]="infoIcon"></fa-icon>

@@ -15,9 +15,12 @@ import {
   faPhoneVolume,
   faWheelchair,
 } from '@fortawesome/free-solid-svg-icons';
+import { SideNavMenuItemComponent } from './menu-item/menu-item.component';
 
 @Component({
+  imports: [SideNavMenuItemComponent],
   selector: 'tp-sidenav-menu',
+  standalone: true,
   template: `
     <ul class="top">
       <li>
@@ -203,7 +206,7 @@ import {
       </li>
     </ul>
   `,
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
 })
 export class SideNavMenuComponent {
   advertisingIcon = faBullhorn;

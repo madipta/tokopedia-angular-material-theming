@@ -1,8 +1,13 @@
 import { Component, Input } from '@angular/core';
+import { MatCardModule } from '@angular/material/card';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
+  imports: [FontAwesomeModule, MatCardModule, MatTooltipModule],
   selector: 'tp-activity',
+  standalone: true,
   template: `
     <mat-card>
       <mat-card-subtitle>

@@ -19,7 +19,7 @@ export const initialState: ThemesState = {
 //   )
 // });
 
-const themesReducer = createReducer(
+export const themesReducer = createReducer(
   initialState,
   on(ThemesActions.changeTheme, (state, { theme }) => ({ ...state, theme })),
   on(ThemesActions.toggleSideNav, (state, { sidenavMinimize }) => ({

@@ -1,4 +1,8 @@
 import { Component, ViewEncapsulation } from '@angular/core';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {
   faBusinessTime,
   faCity,
@@ -6,7 +10,9 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
+  imports: [FontAwesomeModule, MatCardModule, MatFormFieldModule, MatSelectModule],
   selector: 'tp-news',
+  standalone: true,
   template: `
     <mat-card>
       <mat-card-content>

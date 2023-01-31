@@ -1,7 +1,10 @@
 import { Component, ViewEncapsulation } from '@angular/core';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
+  imports: [MatCardModule],
   selector: 'tp-stock-info-adv',
+  standalone: true,
   template: `
     <mat-card>
       <mat-card-title>Produk terlaris di tempatmu</mat-card-title>

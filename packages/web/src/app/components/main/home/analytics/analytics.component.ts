@@ -1,9 +1,13 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { MatCardModule } from '@angular/material/card';
 import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 import Chart from 'chart.js/auto';
+import { AnalyticCardComponent } from './card/card.component';
 
 @Component({
+  imports: [AnalyticCardComponent, MatCardModule],
   selector: 'tp-analytics',
+  standalone: true,
   template: `
     <h3 class="title">{{ title }}</h3>
     <h4 class="subtitle">

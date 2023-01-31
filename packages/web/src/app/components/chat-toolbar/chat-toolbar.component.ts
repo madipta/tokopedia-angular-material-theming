@@ -1,8 +1,16 @@
 import { Component } from '@angular/core';
-import { faMessage, faStar, faWheelchair } from '@fortawesome/free-solid-svg-icons';
+import { MatButtonModule } from '@angular/material/button';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import {
+  faMessage,
+  faStar,
+  faWheelchair,
+} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
+  imports: [FontAwesomeModule, MatButtonModule],
   selector: 'tp-chat-toolbar',
+  standalone: true,
   template: `
     <button mat-button>
       <fa-icon [icon]="chatIcon"></fa-icon>

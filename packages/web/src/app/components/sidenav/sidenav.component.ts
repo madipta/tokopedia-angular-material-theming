@@ -10,9 +10,24 @@ import { select, Store } from '@ngrx/store';
 import { faAngleLeft } from '@fortawesome/free-solid-svg-icons';
 import { Subject } from 'rxjs';
 import { ThemesActions, ThemesSelectors } from '@root/ui/app-state';
+import { SideNavMenuComponent } from './menu/menu.component';
+import { SaldoComponent } from './saldo/saldo.component';
+import { ShopInfoComponent } from './shop-info/shop-info.component';
+import { CommonModule } from '@angular/common';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
+  imports: [
+    CommonModule,
+    FontAwesomeModule,
+    MatButtonModule,
+    SaldoComponent,
+    ShopInfoComponent,
+    SideNavMenuComponent,
+  ],
   selector: 'tp-sidenav',
+  standalone: true,
   template: `
     <nav class="sidenav">
       <button class="toggle" (click)="toggle()" mat-button>
@@ -30,7 +45,7 @@ import { ThemesActions, ThemesSelectors } from '@root/ui/app-state';
       <tp-sidenav-menu></tp-sidenav-menu>
     </nav>
   `,
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
 })
 export class SideNavComponent implements OnInit, OnDestroy {
   isSideNavMinimize$ = this.store.pipe(

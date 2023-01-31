@@ -1,7 +1,18 @@
 import { Component, ViewEncapsulation } from '@angular/core';
+import { MatCardModule } from '@angular/material/card';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @Component({
+  imports: [
+    MatCardModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatFormFieldModule,
+  ],
   selector: 'tp-calendar',
+  standalone: true,
   template: `
     <mat-card>
       <mat-card-content>
@@ -28,7 +39,9 @@ import { Component, ViewEncapsulation } from '@angular/core';
             </div>
             <div class="description">
               <h5>Men in Style 10-23 June 2022</h5>
-              <p>Ikut program promo Tokopedia yuk, tingatkan eksposur produkmu!</p>
+              <p>
+                Ikut program promo Tokopedia yuk, tingatkan eksposur produkmu!
+              </p>
               <span class="category">Campaign</span>
             </div>
           </li>
@@ -58,7 +71,7 @@ import { Component, ViewEncapsulation } from '@angular/core';
       </mat-card-content>
     </mat-card>
   `,
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
 })
 export class CalendarComponent {
   end = new Date(2022, 6, 15);

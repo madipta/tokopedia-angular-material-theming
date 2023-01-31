@@ -1,10 +1,14 @@
+import { CommonModule } from '@angular/common';
 import { Component, ViewEncapsulation } from '@angular/core';
 import { faMoneyBill } from '@fortawesome/free-solid-svg-icons';
 import { select, Store } from '@ngrx/store';
 import { ThemesSelectors } from '@root/ui/app-state';
+import { SideNavMenuItemComponent } from '../menu/menu-item/menu-item.component';
 
 @Component({
+  imports: [CommonModule, SideNavMenuItemComponent],
   selector: 'tp-sidenav-saldo',
+  standalone: true,
   template: `
     <ng-container *ngIf="isSideNavMinimize$ | async">
       <tp-sidenav-menu-item [icon]="logoIcon"></tp-sidenav-menu-item>
@@ -20,7 +24,7 @@ import { ThemesSelectors } from '@root/ui/app-state';
       </div>
     </ng-container>
   `,
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
 })
 export class SaldoComponent {
   isSideNavMinimize$ = this.store.pipe(

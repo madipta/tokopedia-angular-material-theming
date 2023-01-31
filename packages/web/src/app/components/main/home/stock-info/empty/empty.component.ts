@@ -1,7 +1,12 @@
 import { Component, ViewEncapsulation } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatTableModule } from '@angular/material/table';
 
 @Component({
+  imports: [MatButtonModule, MatCardModule, MatTableModule],
   selector: 'tp-stock-info-empty',
+  standalone: true,
   template: `
     <mat-card>
       <mat-card-title>Tambahkan stok produkmu</mat-card-title>
@@ -17,7 +22,10 @@ import { Component, ViewEncapsulation } from '@angular/core';
             <td mat-cell *matCellDef="let field">{{ field.stock }}</td>
           </ng-container>
 
-          <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+          <tr
+            mat-header-row
+            *matHeaderRowDef="displayedColumns; sticky: true"
+          ></tr>
           <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
         </table>
       </mat-card-content>
@@ -26,15 +34,24 @@ import { Component, ViewEncapsulation } from '@angular/core';
       </mat-card-actions>
     </mat-card>
   `,
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
 })
 export class EmptyComponent {
   displayedColumns: string[] = ['name', 'stock'];
   dataSource = [
     { name: 'TableSaw Runner stanley STST 1825', stock: 'habis' },
-    { name: 'Tiang Kayu Patung Manekin Anak + Besi bisa bongkar pasang', stock: 'habis' },
+    {
+      name: 'Tiang Kayu Patung Manekin Anak + Besi bisa bongkar pasang',
+      stock: 'habis',
+    },
     { name: 'Gantungan baju / Hanger Kayu', stock: 'habis' },
-    { name: 'Patung Manekin Wanita tanpa kepala Setengah Badan / half body', stock: 'habis' },
-    { name: 'Tiang Kayu Patung Manekin + Besi bisa bongkar pasang', stock: 'habis' },
+    {
+      name: 'Patung Manekin Wanita tanpa kepala Setengah Badan / half body',
+      stock: 'habis',
+    },
+    {
+      name: 'Tiang Kayu Patung Manekin + Besi bisa bongkar pasang',
+      stock: 'habis',
+    },
   ];
 }

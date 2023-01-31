@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
+  imports: [MatButtonModule],
   selector: 'tp-promo',
+  standalone: true,
   template: `
     <div class="spacer"></div>
     <h5 class="title">Yah, saat ini belum ada campaign</h5>

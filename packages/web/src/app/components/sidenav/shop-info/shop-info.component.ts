@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import {
   Component,
   ElementRef,
@@ -6,6 +7,7 @@ import {
   Renderer2,
   ViewEncapsulation,
 } from '@angular/core';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {
   faClock,
   faShop,
@@ -17,7 +19,9 @@ import { ThemesSelectors } from '@root/ui/app-state';
 import { Subject } from 'rxjs';
 
 @Component({
+  imports: [CommonModule, FontAwesomeModule],
   selector: 'tp-shop-info',
+  standalone: true,
   template: `
     <div class="shop-link">
       <div class="logo">

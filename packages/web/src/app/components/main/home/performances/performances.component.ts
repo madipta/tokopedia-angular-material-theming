@@ -1,11 +1,16 @@
 import { Component, ViewEncapsulation } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {
   faTriangleExclamation,
   faBugSlash,
 } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
+  imports: [FontAwesomeModule, MatButtonModule, MatCardModule],
   selector: 'tp-performances',
+  standalone: true,
   template: `
     <mat-card class="outer-card">
       <mat-card-title>Performa Toko</mat-card-title>
@@ -45,7 +50,7 @@ import {
       </mat-card-actions>
     </mat-card>
   `,
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
 })
 export class PerformancesComponent {
   warnTipsIcon = faTriangleExclamation;

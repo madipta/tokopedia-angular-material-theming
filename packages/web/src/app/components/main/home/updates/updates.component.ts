@@ -1,8 +1,13 @@
 import { Component, ViewEncapsulation } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
+  imports: [FontAwesomeModule, MatButtonModule, MatCardModule],
   selector: 'tp-updates',
+  standalone: true,
   template: `
     <mat-card>
       <mat-card-content>
@@ -15,7 +20,7 @@ import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
       </mat-card-content>
     </mat-card>
   `,
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
 })
 export class UpdatesComponent {
   caption = 'Per 6 Juni, ada penyesuaian biaya layanan';

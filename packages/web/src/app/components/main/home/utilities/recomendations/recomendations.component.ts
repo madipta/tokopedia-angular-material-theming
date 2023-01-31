@@ -1,8 +1,16 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-import { faChartArea, faStopwatch, faTruck } from '@fortawesome/free-solid-svg-icons';
+import { MatCardModule } from '@angular/material/card';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import {
+  faChartArea,
+  faStopwatch,
+  faTruck,
+} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
+  imports: [FontAwesomeModule, MatCardModule],
   selector: 'tp-recomendations',
+  standalone: true,
   template: `
     <mat-card>
       <mat-card-title>Rekomendasi</mat-card-title>
@@ -12,7 +20,9 @@ import { faChartArea, faStopwatch, faTruck } from '@fortawesome/free-solid-svg-i
             <h6 class="title">Ada produkmu yang belum laku terjual, nih</h6>
             <div class="description">
               <p>Buat Flash Sale Toko supaya produkmu laku terjual, yuk!</p>
-              <div class="icon"><fa-icon [icon]="infoIcon" class="warn"></fa-icon></div>
+              <div class="icon">
+                <fa-icon [icon]="infoIcon" class="warn"></fa-icon>
+              </div>
             </div>
             <div class="fitur-type">Rekomendasi Fitur</div>
           </li>
@@ -36,7 +46,7 @@ import { faChartArea, faStopwatch, faTruck } from '@fortawesome/free-solid-svg-i
       </mat-card-content>
     </mat-card>
   `,
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
 })
 export class RecomendationsComponent {
   infoIcon = faStopwatch;

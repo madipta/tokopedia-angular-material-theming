@@ -1,7 +1,10 @@
 import { Component, ViewEncapsulation } from '@angular/core';
+import { ActivityComponent } from './activity/activity.component';
 
 @Component({
+  imports: [ActivityComponent],
   selector: 'tp-activities',
+  standalone: true,
   template: `
     <h3 class="title">{{ title }}</h3>
     <h4 class="subtitle">{{ subTitle }}</h4>
