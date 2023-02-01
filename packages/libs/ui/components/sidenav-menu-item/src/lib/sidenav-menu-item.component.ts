@@ -6,13 +6,13 @@ import {
   OnInit,
   ViewEncapsulation,
 } from '@angular/core';
+import { Router } from '@angular/router';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import { select, Store } from '@ngrx/store';
 import { Subject, takeUntil } from 'rxjs';
 import { ThemesSelectors } from '@root/ui/app-state';
-import { Router } from '@angular/router';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @Component({
   imports: [CommonModule, FontAwesomeModule],

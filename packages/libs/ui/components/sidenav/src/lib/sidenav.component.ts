@@ -1,38 +1,27 @@
+import { CommonModule } from '@angular/common';
 import {
   Component,
-  ElementRef,
+  HostBinding,
   OnDestroy,
   OnInit,
-  Renderer2,
   ViewEncapsulation,
 } from '@angular/core';
-import { select, Store } from '@ngrx/store';
+import { MatButtonModule } from '@angular/material/button';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faAngleLeft } from '@fortawesome/free-solid-svg-icons';
+import { select, Store } from '@ngrx/store';
 import { Subject, takeUntil } from 'rxjs';
 import { ThemesActions, ThemesSelectors } from '@root/ui/app-state';
-import { CommonModule } from '@angular/common';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { MatButtonModule } from '@angular/material/button';
 
 @Component({
-  imports: [
-    CommonModule,
-    FontAwesomeModule,
-    MatButtonModule,
-  ],
+  imports: [CommonModule, FontAwesomeModule, MatButtonModule],
   selector: 'ui-sidenav',
   standalone: true,
   template: `
     <nav class="sidenav">
       <button class="toggle" (click)="toggle()" mat-button>
-        <fa-icon
-          class="toggle-icon"
-          [icon]="toggleIcon"
-          [ngClass]="{ hide: minimize }"
-        ></fa-icon>
-        <span class="menu-text" [ngClass]="{ hide: minimize }">
-          Sembunyikan Menu
-        </span>
+        <fa-icon class="toggle-icon" [icon]="toggleIcon"></fa-icon>
+        <span class="menu-text"> Sembunyikan Menu </span>
       </button>
       <ng-content></ng-content>
     </nav>
@@ -40,18 +29,12 @@ import { MatButtonModule } from '@angular/material/button';
   encapsulation: ViewEncapsulation.None,
 })
 export class SideNavComponent implements OnInit, OnDestroy {
+  @HostBinding('class.min') get hostMinimize() { return this.minimize; }
   destroy$ = new Subject<void>();
-  isSideNavMinimize$ = this.store.pipe(
-    select(ThemesSelectors.isSideNavMinimize)
-  );
   minimize = false;
   toggleIcon = faAngleLeft;
 
-  constructor(
-    private elRef: ElementRef,
-    private renderer: Renderer2,
-    private store: Store
-  ) {}
+  constructor(private store: Store) {}
 
   ngOnDestroy(): void {
     this.destroy$.next();
@@ -59,16 +42,12 @@ export class SideNavComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.isSideNavMinimize$.pipe(takeUntil(this.destroy$)).subscribe((res) => {
-      this.changeSideNav(res);
-    });
-  }
-
-  changeSideNav(minimize: boolean) {
-    const el = this.elRef.nativeElement;
-    this.renderer.removeClass(el, this.minimize ? 'min' : 'max');
-    this.minimize = minimize;
-    this.renderer.addClass(el, this.minimize ? 'min' : 'max');
+    this.store
+      .pipe(select(ThemesSelectors.isSideNavMinimize))
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((res) => {
+        this.minimize = res;
+      });
   }
 
   toggle() {

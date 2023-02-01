@@ -9,6 +9,15 @@ import { SideNavComponent } from '@root/ui/components/sidenav';
 import { SideNavMenuComponent } from './components/menu/menu.component';
 
 @Component({
+  encapsulation: ViewEncapsulation.None,
+  imports: [
+    ChatToolbarComponent,
+    InfoBarComponent,
+    PrimaryBarComponent,
+    RouterOutlet,
+    SideNavComponent,
+    SideNavMenuComponent,
+  ],
   selector: 'tp-root',
   standalone: true,
   template: `
@@ -26,15 +35,6 @@ import { SideNavMenuComponent } from './components/menu/menu.component';
     </section>
     <ui-chat-toolbar></ui-chat-toolbar>
   `,
-  encapsulation: ViewEncapsulation.None,
-  imports: [
-    ChatToolbarComponent,
-    InfoBarComponent,
-    PrimaryBarComponent,
-    RouterOutlet,
-    SideNavComponent,
-    SideNavMenuComponent,
-  ],
 })
 export class AppComponent implements OnInit {
   constructor(private store: Store) {}

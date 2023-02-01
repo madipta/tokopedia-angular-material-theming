@@ -1,39 +1,35 @@
 @use 'sass:map';
 @use '@angular/material' as mat;
-@use 'saldo-info.component' as sidenavSaldo;
-@use 'shop-info.component' as sidenavShopInfo;
 
 @mixin color($theme) {
   $color-config: mat.get-color-config($theme);
   $background-color-palette: map.get($color-config, background);
   $foreground-color-palette: map.get($color-config, foreground);
-
-  @include sidenavSaldo.color($theme);
-  @include sidenavShopInfo.color($theme);
-
-  $tp-sidenav-max-width: 247px;
-  $tp-sidenav-min-width: 90px;
-  $tp-sidenav-top: 96px;
+  $sidenav-max-width: 247px;
+  $sidenav-min-width: 90px;
+  $sidenav-top: 96px;
 
   ui-sidenav {
     overflow: hidden;
-    transition: width 0.3s ease 0.1s;
-    width: $tp-sidenav-max-width;
+    transition: width 0.3s 0.2s ease-out;
+    width: $sidenav-max-width;
     z-index: 1000;
-
-    &.max {
-      width: $tp-sidenav-max-width;
-
-      nav.sidenav {
-        width: $tp-sidenav-max-width;
-      }
-    }
+    width: $sidenav-max-width;
 
     &.min {
-      width: $tp-sidenav-min-width;
+      width: $sidenav-min-width;
 
       nav.sidenav {
-        width: $tp-sidenav-min-width;
+        width: $sidenav-min-width;
+      }
+
+      .menu-text {
+        opacity: 0;
+        width: 0;
+      }
+
+      .toggle-icon {
+        transform: rotate(180deg);
       }
     }
 
@@ -47,41 +43,36 @@
       flex-direction: column;
       left: 0px;
       overflow-x: hidden;
-      overflow-y: visible;
+      overflow-y: auto;
       position: fixed;
-      top: $tp-sidenav-top;
+      top: $sidenav-top;
       transition: width 0.3s ease;
-      width: $tp-sidenav-max-width;
+      width: $sidenav-max-width;
     }
 
     button.toggle {
       color: mat.get-color-from-palette($foreground-color-palette, hint-text);
       font-size: 0.8rem;
+      height: 0.8rem;
+      line-height: 0.8rem;
       font-weight: 600;
       margin: 5px 0;
 
       .toggle-icon {
         display: inline-block;
-        height: 1rem;
-        line-height: 1rem;
+        position: relative;
+        top: -3px;
         transition: transform 0.3s ease 0.2s;
-
-        &.hide {
-          transform: rotate(180deg);
-        }
       }
 
       .menu-text {
         overflow: hidden;
         display: inline-block;
+        height: 1rem;
+        line-height: 1rem;
         margin-left: 8px;
         opacity: 1;
-        transition: opacity 0.3s ease;
-      }
-
-      .menu-text.hide {
-        opacity: 0;
-        width: 0;
+        transition: all 0.3s ease;
       }
     }
   }
