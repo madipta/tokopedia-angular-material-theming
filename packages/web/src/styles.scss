@@ -38,6 +38,7 @@ body {
   background: mat.get-color-from-palette($background-color-palette, background);
   color: mat.get-color-from-palette($foreground-color-palette, text);
   font-family: 'Roboto Flex', sans-serif;
+  overflow: hidden;
 }
 
 @include mat.core();

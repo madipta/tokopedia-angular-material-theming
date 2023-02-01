@@ -18,6 +18,7 @@ import { ThemesSelectors } from '@root/ui/app-state';
   imports: [CommonModule, FontAwesomeModule],
   selector: 'ui-sidenav-menu-item',
   standalone: true,
+  styleUrls: ['sidenav-menu-item.component.scss'],
   template: `
     <div
       class="item"
@@ -29,7 +30,7 @@ import { ThemesSelectors } from '@root/ui/app-state';
     >
       <span class="wrapper" [ngClass]="{ active }">
         <fa-icon [icon]="icon" *ngIf="icon"></fa-icon>
-        <span *ngIf="!minimize">{{ caption }}</span>
+        <span>{{ caption }}</span>
       </span>
       <fa-icon
         [icon]="moreIcon"

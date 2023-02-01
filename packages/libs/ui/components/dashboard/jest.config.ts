@@ -1,6 +1,6 @@
 /* eslint-disable */
 export default {
-  displayName: 'libs-ui-components-sidenav-menu-item',
+  displayName: 'libs-ui-components-dashboard',
   preset: '../../../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
@@ -10,7 +10,7 @@ export default {
     },
   },
   coverageDirectory:
-    '../../../../../coverage/packages/libs/ui/components/sidenav-menu-item',
+    '../../../../../coverage/packages/libs/ui/components/dashboard',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': 'jest-preset-angular',
   },

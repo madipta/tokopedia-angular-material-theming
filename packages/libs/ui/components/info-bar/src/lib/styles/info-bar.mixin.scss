@@ -1,0 +1,49 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+
+@mixin color($theme) {
+  $color-config: mat.get-color-config($theme);
+  $primary-color-palette: map.get($color-config, primary);
+  $foreground-color-palette: map.get($color-config, foreground);
+
+  ui-info-bar {
+    border-bottom: 1px solid mat.get-color-from-palette(
+      $foreground-color-palette,
+      divider
+    );
+
+    li {
+      color: mat.get-color-from-palette(
+        $foreground-color-palette,
+        secondary-text
+      );
+    }
+
+    fa-icon {
+      color: mat.get-color-from-palette(
+        $foreground-color-palette,
+        icon
+      );
+    }
+
+    a {
+      color: mat.get-color-from-palette(
+        $foreground-color-palette,
+        secondary-text
+      );
+
+      &:hover {
+        color: mat.get-color-from-palette(
+          $primary-color-palette
+        );
+      }
+    }
+
+    .title {
+      color: mat.get-color-from-palette(
+        $foreground-color-palette,
+        disabled-text
+      );
+    }
+  }
+}

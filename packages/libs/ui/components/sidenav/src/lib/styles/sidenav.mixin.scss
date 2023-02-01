@@ -1,0 +1,24 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+@use '../menu-item/sidenav-menu-item.mixin.scss' as sidenavMenuItem;
+
+@mixin color($theme) {
+  $color-config: mat.get-color-config($theme);
+  $background-color-palette: map.get($color-config, background);
+  $foreground-color-palette: map.get($color-config, foreground);
+
+  @include sidenavMenuItem.color($theme);
+
+  ui-sidenav {
+    background: mat.get-color-from-palette($background-color-palette, card);
+    border-color: mat.get-color-from-palette($foreground-color-palette, divider);
+
+    button.toggle.mat-mdc-button {
+      color: mat.get-color-from-palette($foreground-color-palette, secondary-text);
+
+      .toggle-icon {
+        color: mat.get-color-from-palette($foreground-color-palette, hint-text);
+      }
+    }
+  }
+}

@@ -15,7 +15,8 @@ import {
   faPhoneVolume,
   faWheelchair,
 } from '@fortawesome/free-solid-svg-icons';
-import { SideNavMenuItemComponent } from '@root/ui/components/sidenav-menu-item'
+import { SideNavMenuItemComponent } from '@root/ui/components/sidenav';
+
 
 @Component({
   imports: [SideNavMenuItemComponent],

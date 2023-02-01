@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {
@@ -8,10 +8,10 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
-  encapsulation: ViewEncapsulation.None,
   imports: [FontAwesomeModule, MatButtonModule],
   selector: 'ui-chat-toolbar',
   standalone: true,
+  styleUrls: ['chat-toolbar.component.scss'],
   template: `
     <button mat-button>
       <fa-icon [icon]="chatIcon"></fa-icon>

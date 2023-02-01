@@ -1,11 +1,5 @@
 import { CommonModule } from '@angular/common';
-import {
-  Component,
-  HostBinding,
-  OnDestroy,
-  OnInit,
-  ViewEncapsulation,
-} from '@angular/core';
+import { Component, HostBinding, OnDestroy, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faAngleLeft } from '@fortawesome/free-solid-svg-icons';
@@ -17,19 +11,21 @@ import { ThemesActions, ThemesSelectors } from '@root/ui/app-state';
   imports: [CommonModule, FontAwesomeModule, MatButtonModule],
   selector: 'ui-sidenav',
   standalone: true,
+  styleUrls: ['sidenav.component.scss'],
   template: `
     <nav class="sidenav">
       <button class="toggle" (click)="toggle()" mat-button>
         <fa-icon class="toggle-icon" [icon]="toggleIcon"></fa-icon>
-        <span class="menu-text"> Sembunyikan Menu </span>
+        <span class="menu-text"> minimize </span>
       </button>
       <ng-content></ng-content>
     </nav>
   `,
-  encapsulation: ViewEncapsulation.None,
 })
 export class SideNavComponent implements OnInit, OnDestroy {
-  @HostBinding('class.min') get hostMinimize() { return this.minimize; }
+  @HostBinding('class.min') get hostMinimize() {
+    return this.minimize;
+  }
   destroy$ = new Subject<void>();
   minimize = false;
   toggleIcon = faAngleLeft;

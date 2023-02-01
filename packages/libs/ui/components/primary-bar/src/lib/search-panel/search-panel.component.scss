@@ -1,0 +1,31 @@
+:host {
+  align-items: center;
+  display: flex;
+  flex: 1 1 0%;
+  margin: 0 72px;
+
+  form {
+    border-radius: 6px;
+    display: flex;
+    flex: 1 1 0%;
+    overflow: hidden;
+
+    input[type='search'] {
+      border: none;
+      flex: 1 1 0%;
+      padding: 8px 0;
+      text-indent: 16px;
+    }
+
+    button.search-button {
+      border-bottom-left-radius: 0;
+      border-top-left-radius: 0;
+      min-width: 0;
+      padding: 0 12px;
+    }
+
+    fa-icon {
+      font-size: 1.14rem;
+    }
+  }
+}

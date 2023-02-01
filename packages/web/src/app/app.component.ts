@@ -1,39 +1,36 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { ChatToolbarComponent } from '@root/ui/components/chat-toolbar';
-import { InfoBarComponent } from '@root/ui/components/info-bar';
-import { PrimaryBarComponent } from '@root/ui/components/primary-bar';
 import { ThemesActions } from '@root/ui/app-state';
-import { SideNavComponent } from '@root/ui/components/sidenav';
+import { ChatToolbarComponent } from '@root/ui/components/chat-toolbar';
+import { DashboardComponent } from '@root/ui/components/dashboard';
+import { InfoBarComponent } from '@root/ui/components/info-bar';
 import { SideNavMenuComponent } from './components/menu/menu.component';
+import { PrimaryBarComponent } from '@root/ui/components/primary-bar';
 
 @Component({
-  encapsulation: ViewEncapsulation.None,
   imports: [
     ChatToolbarComponent,
     InfoBarComponent,
     PrimaryBarComponent,
     RouterOutlet,
-    SideNavComponent,
     SideNavMenuComponent,
+    DashboardComponent,
   ],
   selector: 'tp-root',
   standalone: true,
   template: `
-    <header>
-      <ui-info-bar></ui-info-bar>
-      <ui-primary-bar></ui-primary-bar>
-    </header>
-    <section class="main">
-      <ui-sidenav>
+    <ui-dashboard>
+      <section header>
+        <ui-info-bar></ui-info-bar>
+        <ui-primary-bar></ui-primary-bar>
+      </section>
+      <section sidenav>
         <tp-sidenav-menu></tp-sidenav-menu>
-      </ui-sidenav>
-      <main>
-        <router-outlet></router-outlet>
-      </main>
-    </section>
-    <ui-chat-toolbar></ui-chat-toolbar>
+      </section>
+      <router-outlet></router-outlet>
+      <ui-chat-toolbar></ui-chat-toolbar>
+    </ui-dashboard>
   `,
 })
 export class AppComponent implements OnInit {

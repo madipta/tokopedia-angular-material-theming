@@ -1,11 +1,11 @@
 @use 'sass:map';
 @use '@angular/material' as mat;
-@use 'chat-toolbar.component' as chat-toolbar;
-@use 'info-bar.component' as infoBar;
-@use 'primary-bar.component' as primaryBar;
+@use 'dashboard.mixin' as dashboard;
+@use 'chat-toolbar.mixin' as chat-toolbar;
+@use 'info-bar.mixin' as infoBar;
+@use 'primary-bar.mixin' as primaryBar;
 @use './components/main/home/' as home;
-@use 'sidenav.component' as sidenav;
-@use 'sidenav-menu-item.component' as sidenavMenuItem;
+@use 'sidenav.mixin' as sidenav;
 @use './components/menu/' as menu;
 
 @mixin color($theme) {
@@ -14,12 +14,12 @@
   $foreground-color-palette: map.get($color-config, foreground);
   $primary-color-palette: map.get($color-config, primary);
 
+  @include dashboard.color($theme);
   @include chat-toolbar.color($theme);
   @include infoBar.color($theme);
   @include primaryBar.color($theme);
   @include home.color($theme);
   @include sidenav.color($theme);
-  @include sidenavMenuItem.color($theme);
   @include menu.color($theme);
 
   mat-card.mat-mdc-card {

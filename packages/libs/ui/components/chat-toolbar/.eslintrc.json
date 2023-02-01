@@ -9,7 +9,7 @@
           "error",
           {
             "type": "attribute",
-            "prefix": "updateImportsOnFileMove",
+            "prefix": "ui",
             "style": "camelCase"
           }
         ],

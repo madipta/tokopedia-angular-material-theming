@@ -8,9 +8,6 @@
   $primary-color-palette: map.get($color-config, primary);
 
   ui-sidenav-menu-item {
-    display: block;
-    font-size: 0.78rem;
-    width: 100%;
 
     &.active {
       div.item {
@@ -24,11 +21,7 @@
     }
 
     div.item {
-      align-items: center;
-      border-left: 3px solid transparent;
       color: mat.get-color-from-palette($foreground-color-palette, text);
-      cursor: pointer;
-      display: flex;
 
       &:hover {
         background-color: mat.get-color-from-palette(
@@ -37,58 +30,15 @@
         );
       }
 
-      &.minimize {
-        flex-direction: column;
-
-        .wrapper {
-          padding: 6px 0;
-          width: auto;
-        }
-      }
-
       .wrapper {
-        align-items: center;
-        display: flex;
-        flex: 1 1 0%;
-        padding: 7px 0 7px 12px;
-        width: 100%;
 
         fa-icon {
           color: mat.get-color-from-palette($foreground-color-palette, icon);
-          font-size: 1.2rem;
-          margin-right: 4px;
-          width: 1.2rem;
-        }
-
-        & > span {
-          flex: 1 1 0%;
-          font-weight: 600;
-          margin-left: 12px;
         }
       }
 
       .more {
         color: mat.get-color-from-palette($foreground-color-palette, icon);
-        cursor: pointer;
-        margin-right: 10px;
-        transition: all 0.3s ease 0.1s;
-
-        &.expand {
-          transform: rotate(180deg);
-        }
-      }
-    }
-
-    .sub-menu {
-      display: flex;
-      flex-direction: column;
-      max-height: 0px;
-      margin-left: 32px;
-      overflow: hidden;
-      transition: all 0.5s ease;
-
-      &.expand {
-        max-height: 100vh;
       }
     }
   }

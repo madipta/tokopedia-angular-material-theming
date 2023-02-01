@@ -1,0 +1,28 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+@use '../menu-panel/menu-panel.mixin' as menuPanel;
+@use '../search-panel/search-panel.mixin' as searchPanel;
+
+@mixin color($theme) {
+  $color-config: mat.get-color-config($theme);
+  $foreground-color-palette: map.get($color-config, foreground);
+  $primary-color-palette: map.get($color-config, primary);
+
+  @include menuPanel.color($theme);
+  @include searchPanel.color($theme);
+
+  ui-primary-bar {
+    header {
+      h1.logo {
+        color: mat.get-color-from-palette($primary-color-palette, text);
+
+        span {
+          color: mat.get-color-from-palette(
+            $foreground-color-palette,
+            hint-text
+          );
+        }
+      }
+    }
+  }
+}

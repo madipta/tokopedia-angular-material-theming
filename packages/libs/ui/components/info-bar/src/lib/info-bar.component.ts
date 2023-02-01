@@ -1,11 +1,5 @@
 import { CommonModule } from '@angular/common';
-import {
-  Component,
-  OnDestroy,
-  OnInit,
-  Renderer2,
-  ViewEncapsulation,
-} from '@angular/core';
+import { Component, OnDestroy, OnInit, Renderer2 } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {
   faCamera,
@@ -16,13 +10,14 @@ import {
   faUser,
 } from '@fortawesome/free-solid-svg-icons';
 import { select, Store } from '@ngrx/store';
-import { Subject } from 'rxjs';
+import { Subject, takeUntil } from 'rxjs';
 import { ThemesActions, ThemesSelectors } from '@root/ui/app-state';
 
 @Component({
   imports: [CommonModule, FontAwesomeModule],
   selector: 'ui-info-bar',
   standalone: true,
+  styleUrls: ['info-bar.component.scss'],
   template: `
     <nav>
       <ul class="left">
@@ -60,31 +55,32 @@ import { ThemesActions, ThemesSelectors } from '@root/ui/app-state';
       </ul>
     </nav>
   `,
-  encapsulation: ViewEncapsulation.None,
 })
 export class InfoBarComponent implements OnInit, OnDestroy {
+  destroy$ = new Subject<void>();
+  theme = 'light';
   cameraIcon = faCamera;
   darkIcon = faMoon;
   isDark = false;
   lightIcon = faSun;
   mobileIcon = faMobileScreen;
   socialIcon = faUser;
-  theme = 'light';
-  themes$ = this.store.pipe(select(ThemesSelectors.getSelectedTheme));
-  unsubscribe$ = new Subject<void>();
   videoIcon = faTv;
 
   constructor(private renderer: Renderer2, private store: Store) {}
 
   ngOnDestroy(): void {
-    this.unsubscribe$.next();
-    this.unsubscribe$.complete();
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 
   ngOnInit(): void {
-    this.themes$.subscribe((res) => {
-      this.changeTheme(res);
-    });
+    this.store
+      .pipe(takeUntil(this.destroy$))
+      .pipe(select(ThemesSelectors.getSelectedTheme))
+      .subscribe((res) => {
+        this.changeTheme(res);
+      });
   }
 
   changeTheme(theme: string) {

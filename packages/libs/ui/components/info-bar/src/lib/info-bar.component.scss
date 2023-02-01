@@ -1,103 +1,68 @@
-@use 'sass:map';
-@use '@angular/material' as mat;
+:host {
+  display: flex;
+  flex-direction: column;
 
-@mixin color($theme) {
-  $color-config: mat.get-color-config($theme);
-  $primary-color-palette: map.get($color-config, primary);
-  $foreground-color-palette: map.get($color-config, foreground);
-
-  ui-info-bar {
-    border-bottom: 1px solid mat.get-color-from-palette(
-      $foreground-color-palette,
-      divider
-    );
+  nav {
+    align-items: center;
     display: flex;
-    flex-direction: column;
+    font-size: 0.8rem;
+    padding: 6px 32px;
+  }
 
-    nav {
-      align-items: center;
-      display: flex;
-      font-size: 0.8rem;
-      padding: 6px 32px;
-    }
+  ul {
+    align-items: center;
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 
-    ul {
-      align-items: center;
-      display: flex;
-      list-style: none;
-      margin: 0;
-      padding: 0;
+    &.right {
+      flex: 1 1 0%;
+      justify-content: flex-end;
 
-      &.right {
-        flex: 1 1 0%;
-        justify-content: flex-end;
-
-        fa-icon {
-          font-size: 0.78rem;
-        }
-      }
-    }
-
-    li {
-      align-items: center;
-      color: mat.get-color-from-palette(
-        $foreground-color-palette,
-        secondary-text
-      );
-      display: flex;
-      font-size: 0.78rem;
-    }
-
-    fa-icon {
-      align-content: center;
-      color: mat.get-color-from-palette(
-        $foreground-color-palette,
-        icon
-      );
-      font-size: 1rem;
-      height: auto;
-      width: auto;
-    }
-
-    a {
-      color: mat.get-color-from-palette(
-        $foreground-color-palette,
-        secondary-text
-      );
-      cursor: pointer;
-      margin: 0 4px;
-
-      &.download-link {
-        margin-left: 8px;
-      }
-
-      &.text-link {
-        margin-right: 24px;
-      }
-
-      &:hover {
-        color: mat.get-color-from-palette(
-          $primary-color-palette
-        );
-      }
-    }
-
-    .mobile-app {
-      margin-right: 32px;
-    }
-
-    .theme-selector {
       fa-icon {
-        cursor: pointer;
+        font-size: 0.78rem;
       }
     }
+  }
 
-    .title {
-      color: mat.get-color-from-palette(
-        $foreground-color-palette,
-        disabled-text
-      );
-      padding-right: 6px;
+  li {
+    align-items: center;
+    display: flex;
+    font-size: 0.78rem;
+  }
+
+  fa-icon {
+    align-content: center;
+    font-size: 1rem;
+    height: auto;
+    width: auto;
+  }
+
+  a {
+    cursor: pointer;
+    margin: 0 4px;
+
+    &.download-link {
+      margin-left: 8px;
     }
+
+    &.text-link {
+      margin-right: 24px;
+    }
+  }
+
+  .mobile-app {
+    margin-right: 32px;
+  }
+
+  .theme-selector {
+    fa-icon {
+      cursor: pointer;
+    }
+  }
+
+  .title {
+    padding-right: 6px;
   }
 }

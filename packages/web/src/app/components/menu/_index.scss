@@ -1,12 +1,9 @@
 @use 'sass:map';
 @use '@angular/material' as mat;
-@use 'sidenav-menu-item.component' as menuItem;
 
 @mixin color($theme) {
   $color-config: mat.get-color-config($theme);
   $foreground-color-palette: map.get($color-config, foreground);
-
-  @include menuItem.color($theme);
 
   tp-sidenav-menu {
     display: block;
