@@ -1,0 +1,14 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+
+@mixin color($theme) {
+  $color-config: mat.get-color-config($theme);
+  $foreground-color-palette: map.get($color-config, foreground);
+
+  ui-sidenav-menu-divider {
+    border-top-color: mat.get-color-from-palette(
+      $foreground-color-palette,
+      divider
+    );
+  }
+}

@@ -15,9 +15,6 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@/ui/core/sidenav": [
-        "packages/libs/ui/core/sidenav/src/index.ts"
-      ],
       "@/ui/app-state": ["packages/libs/ui/app-state/src/index.ts"],
       "@/ui/components/chat-toolbar": [
         "packages/libs/ui/components/chat-toolbar/src/index.ts"
@@ -34,9 +31,11 @@
       "@/ui/components/shop-info": [
         "packages/libs/ui/components/shop-info/src/index.ts"
       ],
-      "@/ui/core/dashboard": [
-        "packages/libs/ui/core/dashboard/src/index.ts"
-      ]
+      "@/ui/components/side-menu": [
+        "packages/libs/ui/components/side-menu/src/index.ts"
+      ],
+      "@/ui/core/dashboard": ["packages/libs/ui/core/dashboard/src/index.ts"],
+      "@/ui/core/sidenav": ["packages/libs/ui/core/sidenav/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

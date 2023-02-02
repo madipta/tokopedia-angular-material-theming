@@ -6,7 +6,7 @@ import { ChatToolbarComponent } from '@/ui/components/chat-toolbar';
 import { InfoBarComponent } from '@/ui/components/info-bar';
 import { PrimaryBarComponent } from '@/ui/components/primary-bar';
 import { DashboardComponent, StickyBarDirective } from '@/ui/core/dashboard';
-import { SideNavMenuComponent } from './components/menu/menu.component';
+import { SideMenuComponent } from '@/ui/components/side-menu';
 
 @Component({
   imports: [
@@ -15,7 +15,7 @@ import { SideNavMenuComponent } from './components/menu/menu.component';
     InfoBarComponent,
     PrimaryBarComponent,
     RouterOutlet,
-    SideNavMenuComponent,
+    SideMenuComponent,
     DashboardComponent,
   ],
   selector: 'tp-root',
@@ -27,7 +27,7 @@ import { SideNavMenuComponent } from './components/menu/menu.component';
         <ui-primary-bar></ui-primary-bar>
       </section>
       <section sidenav>
-        <tp-sidenav-menu></tp-sidenav-menu>
+        <app-side-menu></app-side-menu>
       </section>
       <router-outlet></router-outlet>
       <div uiStickyBar="bottom">

@@ -25,10 +25,10 @@
       "unitTestRunner": "jest"
     },
     "@nrwl/angular:component": {
+      "style": "scss",
       "inlineStyle": true,
       "inlineTemplate": true,
-      "standalone": true,
-      "style": "scss"
+      "standalone": true
     },
     "@nrwl/angular:directive": {
       "skipImport": true,

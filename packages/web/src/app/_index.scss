@@ -6,7 +6,6 @@
 @use 'primary-bar.mixin' as primaryBar;
 @use './components/main/home/' as home;
 @use 'sidenav.mixin' as sidenav;
-@use './components/menu/' as menu;
 
 @mixin color($theme) {
   $color-config: mat.get-color-config($theme);
@@ -20,7 +19,6 @@
   @include primaryBar.color($theme);
   @include home.color($theme);
   @include sidenav.color($theme);
-  @include menu.color($theme);
 
   mat-card.mat-mdc-card {
     padding: 16px;
