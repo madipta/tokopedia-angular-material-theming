@@ -1,10 +1,10 @@
 :host {
+  border-bottom-style: solid;
+  border-bottom-width: 4px;
   border-radius: 8px 8px 0 0;
-  bottom: 0;
+  display: block;
   overflow: hidden;
   padding: 4px 8px;
-  position: fixed;
-  right: 70px;
 
   button.mat-button {
     min-width: 0;

@@ -9,7 +9,7 @@
   },
   "extends": "nx/presets/npm.json",
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
-  "npmScope": "root",
+  "npmScope": "",
   "affected": {
     "defaultBase": "main"
   },
@@ -25,10 +25,14 @@
       "unitTestRunner": "jest"
     },
     "@nrwl/angular:component": {
-      "style": "scss",
       "inlineStyle": true,
       "inlineTemplate": true,
-      "standalone": true
+      "standalone": true,
+      "style": "scss"
+    },
+    "@nrwl/angular:directive": {
+      "skipImport": true,
+      "skipTests": true
     }
   },
   "defaultProject": "web",

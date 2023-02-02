@@ -6,7 +6,7 @@ import { provideEffects } from '@ngrx/effects';
 import { provideRouterStore } from '@ngrx/router-store';
 import { provideStore } from '@ngrx/store';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
-import { ThemesFeature } from '@root/ui/app-state';
+import { ThemesFeature } from '@/ui/app-state';
 import { AppComponent } from './app/app.component';
 import { appRoutes } from './app/app.router';
 

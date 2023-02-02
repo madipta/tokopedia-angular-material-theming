@@ -12,7 +12,7 @@ import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import { select, Store } from '@ngrx/store';
 import { Subject, takeUntil } from 'rxjs';
-import { ThemesSelectors } from '@root/ui/app-state';
+import { ThemesSelectors } from '@/ui/app-state';
 
 @Component({
   imports: [CommonModule, FontAwesomeModule],

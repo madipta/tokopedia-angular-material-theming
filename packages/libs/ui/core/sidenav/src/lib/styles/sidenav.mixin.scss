@@ -11,10 +11,16 @@
 
   ui-sidenav {
     background: mat.get-color-from-palette($background-color-palette, card);
-    border-color: mat.get-color-from-palette($foreground-color-palette, divider);
+    border-color: mat.get-color-from-palette(
+      $foreground-color-palette,
+      divider
+    );
 
     button.toggle.mat-mdc-button {
-      color: mat.get-color-from-palette($foreground-color-palette, secondary-text);
+      color: mat.get-color-from-palette(
+        $foreground-color-palette,
+        secondary-text
+      );
 
       .toggle-icon {
         color: mat.get-color-from-palette($foreground-color-palette, hint-text);

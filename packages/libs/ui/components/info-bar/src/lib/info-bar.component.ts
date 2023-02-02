@@ -11,7 +11,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { select, Store } from '@ngrx/store';
 import { Subject, takeUntil } from 'rxjs';
-import { ThemesActions, ThemesSelectors } from '@root/ui/app-state';
+import { ThemesActions, ThemesSelectors } from '@/ui/app-state';
 
 @Component({
   imports: [CommonModule, FontAwesomeModule],

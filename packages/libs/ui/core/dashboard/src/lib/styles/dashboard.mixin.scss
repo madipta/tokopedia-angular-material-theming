@@ -12,8 +12,10 @@
         $background-color-palette,
         app-bar
       );
-      border-bottom: 1px solid
-        mat.get-color-from-palette($foreground-color-palette, divider);
+      border-bottom-color: mat.get-color-from-palette(
+        $foreground-color-palette,
+        divider
+      );
     }
   }
 }

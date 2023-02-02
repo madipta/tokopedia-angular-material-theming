@@ -15,27 +15,27 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@root/ui/app-state": ["packages/libs/ui/app-state/src/index.ts"],
-      "@root/ui/components/chat-toolbar": [
+      "@/ui/core/sidenav": [
+        "packages/libs/ui/core/sidenav/src/index.ts"
+      ],
+      "@/ui/app-state": ["packages/libs/ui/app-state/src/index.ts"],
+      "@/ui/components/chat-toolbar": [
         "packages/libs/ui/components/chat-toolbar/src/index.ts"
       ],
-      "@root/ui/components/dashboard": [
-        "packages/libs/ui/components/dashboard/src/index.ts"
-      ],
-      "@root/ui/components/info-bar": [
+      "@/ui/components/info-bar": [
         "packages/libs/ui/components/info-bar/src/index.ts"
       ],
-      "@root/ui/components/primary-bar": [
+      "@/ui/components/primary-bar": [
         "packages/libs/ui/components/primary-bar/src/index.ts"
       ],
-      "@root/ui/components/saldo-info": [
+      "@/ui/components/saldo-info": [
         "packages/libs/ui/components/saldo-info/src/index.ts"
       ],
-      "@root/ui/components/shop-info": [
+      "@/ui/components/shop-info": [
         "packages/libs/ui/components/shop-info/src/index.ts"
       ],
-      "@root/ui/components/sidenav": [
-        "packages/libs/ui/components/sidenav/src/index.ts"
+      "@/ui/core/dashboard": [
+        "packages/libs/ui/core/dashboard/src/index.ts"
       ]
     }
   },

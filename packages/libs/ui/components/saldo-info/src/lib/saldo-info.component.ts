@@ -2,13 +2,14 @@ import { CommonModule } from '@angular/common';
 import { Component, ViewEncapsulation } from '@angular/core';
 import { faMoneyBill } from '@fortawesome/free-solid-svg-icons';
 import { select, Store } from '@ngrx/store';
-import { ThemesSelectors } from '@root/ui/app-state';
-import { SideNavMenuItemComponent } from '@root/ui/components/sidenav-menu-item';
+import { ThemesSelectors } from '@/ui/app-state';
+import { SideNavMenuItemComponent } from '@/ui/core/sidenav';
 
 @Component({
   imports: [CommonModule, SideNavMenuItemComponent],
   selector: 'ui-sidenav-saldo-info',
   standalone: true,
+  styleUrls: ['saldo-info.component.scss'],
   template: `
     <ng-container *ngIf="isSideNavMinimize$ | async">
       <ui-sidenav-menu-item [icon]="logoIcon"></ui-sidenav-menu-item>

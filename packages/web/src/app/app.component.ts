@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { ThemesActions } from '@root/ui/app-state';
-import { ChatToolbarComponent } from '@root/ui/components/chat-toolbar';
-import { DashboardComponent } from '@root/ui/components/dashboard';
-import { InfoBarComponent } from '@root/ui/components/info-bar';
+import { ThemesActions } from '@/ui/app-state';
+import { ChatToolbarComponent } from '@/ui/components/chat-toolbar';
+import { InfoBarComponent } from '@/ui/components/info-bar';
+import { PrimaryBarComponent } from '@/ui/components/primary-bar';
+import { DashboardComponent, StickyBarDirective } from '@/ui/core/dashboard';
 import { SideNavMenuComponent } from './components/menu/menu.component';
-import { PrimaryBarComponent } from '@root/ui/components/primary-bar';
 
 @Component({
   imports: [
+    StickyBarDirective,
     ChatToolbarComponent,
     InfoBarComponent,
     PrimaryBarComponent,
@@ -29,7 +30,9 @@ import { PrimaryBarComponent } from '@root/ui/components/primary-bar';
         <tp-sidenav-menu></tp-sidenav-menu>
       </section>
       <router-outlet></router-outlet>
-      <ui-chat-toolbar></ui-chat-toolbar>
+      <div uiStickyBar="bottom">
+        <ui-chat-toolbar></ui-chat-toolbar>
+      </div>
     </ui-dashboard>
   `,
 })

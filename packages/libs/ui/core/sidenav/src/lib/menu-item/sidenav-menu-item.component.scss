@@ -17,6 +17,7 @@ ui-sidenav-menu-item {
         width: auto;
 
         > span {
+          height: 0;
           opacity: 0;
           width: 0;
         }

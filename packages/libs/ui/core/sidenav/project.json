@@ -1,15 +1,15 @@
 {
-  "name": "libs-ui-components-sidenav",
+  "name": "libs-ui-core-sidenav",
   "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
-  "sourceRoot": "packages/libs/ui/components/sidenav/src",
+  "sourceRoot": "packages/libs/ui/core/sidenav/src",
   "prefix": "root",
   "targets": {
     "test": {
       "executor": "@nrwl/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "packages/libs/ui/components/sidenav/jest.config.ts",
+        "jestConfig": "packages/libs/ui/core/sidenav/jest.config.ts",
         "passWithNoTests": true
       },
       "configurations": {
@@ -24,8 +24,8 @@
       "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": [
-          "packages/libs/ui/components/sidenav/**/*.ts",
-          "packages/libs/ui/components/sidenav/**/*.html"
+          "packages/libs/ui/core/sidenav/**/*.ts",
+          "packages/libs/ui/core/sidenav/**/*.html"
         ]
       }
     }

@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SideNavComponent } from '@root/ui/components/sidenav';
+import { SideNavComponent } from '@/ui/core/sidenav';
 
 @Component({
+  encapsulation: ViewEncapsulation.None,
   imports: [CommonModule, SideNavComponent],
   selector: 'ui-dashboard',
   standalone: true,

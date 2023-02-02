@@ -15,13 +15,14 @@ import {
   faUserCheck,
 } from '@fortawesome/free-solid-svg-icons';
 import { select, Store } from '@ngrx/store';
-import { ThemesSelectors } from '@root/ui/app-state';
-import { Subject } from 'rxjs';
+import { ThemesSelectors } from '@/ui/app-state';
+import { Subject, takeUntil } from 'rxjs';
 
 @Component({
   imports: [CommonModule, FontAwesomeModule],
   selector: 'ui-shop-info',
   standalone: true,
+  styleUrls: ['shop-info.component.scss'],
   template: `
     <div class="shop-link">
       <div class="logo">
@@ -60,20 +61,17 @@ import { Subject } from 'rxjs';
       </span>
     </div>
   `,
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
 })
 export class ShopInfoComponent implements OnInit, OnDestroy {
   clockIcon = faClock;
   followersIcon = faUserCheck;
-  followersCount = 12;
-  isSideNavMinimize$ = this.store.pipe(
-    select(ThemesSelectors.isSideNavMinimize)
-  );
   minimize = false;
   shopIcon = faShop;
-  shopName = 'Waroeng IT';
   starIcon = faStar;
-  unsubscribe$ = new Subject<void>();
+  destroy$ = new Subject<void>();
+  followersCount = 12;
+  shopName = 'Waroeng IT';
 
   constructor(
     private elRef: ElementRef,
@@ -82,14 +80,17 @@ export class ShopInfoComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnDestroy(): void {
-    this.unsubscribe$.next();
-    this.unsubscribe$.complete();
+    this.destroy$.next();
+    this.destroy$.unsubscribe();
   }
 
   ngOnInit(): void {
-    this.isSideNavMinimize$.subscribe((res) => {
-      this.changeSideNav(res);
-    });
+    this.store
+      .pipe(takeUntil(this.destroy$))
+      .pipe(select(ThemesSelectors.isSideNavMinimize))
+      .subscribe((res) => {
+        this.changeSideNav(res);
+      });
   }
 
   changeSideNav(minimize: boolean) {

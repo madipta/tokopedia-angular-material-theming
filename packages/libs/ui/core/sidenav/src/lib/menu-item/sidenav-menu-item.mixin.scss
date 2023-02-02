@@ -8,7 +8,6 @@
   $primary-color-palette: map.get($color-config, primary);
 
   ui-sidenav-menu-item {
-
     &.active {
       div.item {
         border-color: mat.get-color-from-palette($primary-color-palette, 500);
@@ -31,7 +30,6 @@
       }
 
       .wrapper {
-
         fa-icon {
           color: mat.get-color-from-palette($foreground-color-palette, icon);
         }
