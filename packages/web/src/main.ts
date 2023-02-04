@@ -7,10 +7,11 @@ import { provideRouterStore } from '@ngrx/router-store';
 import { provideStore } from '@ngrx/store';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { ThemesFeature } from '@/ui/app-state';
+import { SidenavModule } from '@/ui/core/sidenav';
 import { AppComponent } from './app/app.component';
 import { appRoutes } from './app/app.router';
-
 import { environment } from './environments/environment';
+import { AppModule } from './app/app.module';
 
 if (environment.production) {
   enableProdMode();
@@ -18,7 +19,11 @@ if (environment.production) {
 
 bootstrapApplication(AppComponent, {
   providers: [
-    importProvidersFrom(RouterModule.forRoot(appRoutes)),
+    importProvidersFrom(
+      RouterModule.forRoot(appRoutes),
+      AppModule,
+      SidenavModule
+    ),
     provideAnimations(),
     provideStore({ Themes: ThemesFeature.themesReducer }),
     provideRouterStore(),

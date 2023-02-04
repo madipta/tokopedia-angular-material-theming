@@ -1,0 +1,43 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+
+@mixin color($theme) {
+  $color-config: mat.get-color-config($theme);
+  $background-color-palette: map.get($color-config, background);
+  $foreground-color-palette: map.get($color-config, foreground);
+  $primary-color-palette: map.get($color-config, primary);
+
+  ui-sidenav-menu-folder.sidenav-menu-folder {
+    &.active {
+      > .folder {
+        border-left-color: mat.get-color-from-palette($primary-color-palette, 500);
+        color: mat.get-color-from-palette($primary-color-palette, 700);
+
+        fa-icon:first-child {
+          color: mat.get-color-from-palette($primary-color-palette, 500);
+        }
+      }
+    }
+
+    > .folder {
+      color: mat.get-color-from-palette($foreground-color-palette, text);
+
+      &:hover {
+        background-color: mat.get-color-from-palette(
+          $background-color-palette,
+          hover
+        );
+      }
+
+      .wrapper {
+        fa-icon {
+          color: mat.get-color-from-palette($foreground-color-palette, icon);
+        }
+      }
+
+      .more {
+        color: mat.get-color-from-palette($foreground-color-palette, icon);
+      }
+    }
+  }
+}

@@ -31,9 +31,6 @@
       "@/ui/components/shop-info": [
         "packages/libs/ui/components/shop-info/src/index.ts"
       ],
-      "@/ui/components/side-menu": [
-        "packages/libs/ui/components/side-menu/src/index.ts"
-      ],
       "@/ui/core/dashboard": ["packages/libs/ui/core/dashboard/src/index.ts"],
       "@/ui/core/sidenav": ["packages/libs/ui/core/sidenav/src/index.ts"]
     }

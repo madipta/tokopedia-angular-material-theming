@@ -3,7 +3,7 @@
   font-size: 0.78rem;
   width: 100%;
 
-  > .item {
+  > .folder {
     align-items: center;
     border-left-color: transparent;
     border-left-style: solid;
@@ -34,10 +34,16 @@
         transition: all 1s ease;
       }
     }
+
+    .more {
+      cursor: pointer;
+      margin-right: 10px;
+      transition: all 0.3s ease 0.1s;
+    }
   }
 
   &.minimize {
-    > .item {
+    > .folder {
 
       .wrapper {
         align-items: center;
@@ -51,6 +57,29 @@
           width: 0;
         }
       }
+
+      .more {
+        display: none;
+      }
     }
+  }
+
+  &.expanded {
+    .more {
+      transform: rotate(180deg);
+    }
+
+    .sub-menu {
+      max-height: 100vh;
+    }
+  }
+
+  .sub-menu {
+    display: flex;
+    flex-direction: column;
+    max-height: 0px;
+    margin-left: 32px;
+    overflow: hidden;
+    transition: all 0.5s ease;
   }
 }

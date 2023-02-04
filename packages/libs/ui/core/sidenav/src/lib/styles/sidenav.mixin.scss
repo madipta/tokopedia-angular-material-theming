@@ -1,6 +1,7 @@
 @use 'sass:map';
 @use '@angular/material' as mat;
 @use '../menu-divider/sidenav-menu-divider.mixin.scss' as sideNavMenuDivider;
+@use '../menu-folder/sidenav-menu-folder.mixin.scss' as sideNavMenuFolder;
 @use '../menu-item/sidenav-menu-item.mixin.scss' as sidenavMenuItem;
 
 @mixin color($theme) {
@@ -9,6 +10,7 @@
   $foreground-color-palette: map.get($color-config, foreground);
 
   @include sideNavMenuDivider.color($theme);
+  @include sideNavMenuFolder.color($theme);
   @include sidenavMenuItem.color($theme);
 
   ui-sidenav {

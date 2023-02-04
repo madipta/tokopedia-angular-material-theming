@@ -1,4 +1,3 @@
-import { CommonModule } from '@angular/common';
 import {
   Component,
   HostBinding,
@@ -6,38 +5,47 @@ import {
   OnDestroy,
   OnInit,
 } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
-import { select, Store } from '@ngrx/store';
-import { Subject, takeUntil } from 'rxjs';
+import { Store, select } from '@ngrx/store';
 import { ThemesSelectors } from '@/ui/app-state';
+import { Subject, takeUntil } from 'rxjs';
 
 @Component({
   imports: [CommonModule, FontAwesomeModule],
-  selector: 'ui-sidenav-menu-item',
+  selector: 'ui-sidenav-menu-folder',
   standalone: true,
-  styleUrls: ['sidenav-menu-item.component.scss'],
+  styleUrls: ['./sidenav-menu-folder.component.scss'],
   template: `
-    <div class="item" (click)="itemClick()">
+    <div class="folder" (click)="itemClick()">
       <span class="wrapper" [ngClass]="{ active }">
         <fa-icon [icon]="icon" *ngIf="icon"></fa-icon>
         <span>{{ caption }}</span>
       </span>
+      <fa-icon
+        icon="angle-down"
+        class="more"
+      ></fa-icon>
+    </div>
+    <div class="sub-menu" *ngIf="!minimize">
+      <ng-content></ng-content>
     </div>
   `,
 })
-export class SideNavMenuItemComponent implements OnDestroy, OnInit {
-  @HostBinding('class.sidenav-menu-item') base = true;
+export class SideNavMenuFolderComponent implements OnDestroy, OnInit {
+  @HostBinding('class.sidenav-menu-folder') base = true;
   @HostBinding('class.active') active = false;
+  @HostBinding('class.expanded') expanded = false;
   @HostBinding('class.minimize') minimize = false;
   @Input() caption = '';
   @Input() icon?: IconProp;
-  @Input() link: string | undefined;
+  moreIcon = 'faAngleDown';
   destroy$ = new Subject<void>();
 
   itemClick() {
-    this.router.navigate([this.link]);
+    this.expanded = !this.expanded;
   }
 
   constructor(private router: Router, private store: Store) {}
