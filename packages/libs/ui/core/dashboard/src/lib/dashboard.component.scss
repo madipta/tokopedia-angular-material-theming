@@ -1,7 +1,18 @@
-$sidenav-x-offset: 72px;
+$sidenav-max-width: 230px;
+$sidenav-min-width: 72px;
 $header-y-offset: 96px;
 
 ui-dashboard {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  &.min {
+    > main {
+      margin-left: $sidenav-max-width;
+    }
+  }
+
   > header {
     border-bottom-style: solid;
     border-bottom-width: 1px;
@@ -15,8 +26,9 @@ ui-dashboard {
   > main {
     display: flex;
     flex-direction: column;
-    margin-left: $sidenav-x-offset;
+    margin-left: $sidenav-min-width;
     padding-top: $header-y-offset;
+    transition: all 0.3s 0.2s ease-out;
 
     section.main-content {
       height: calc(100vh - $header-y-offset);
@@ -38,7 +50,7 @@ ui-dashboard {
 
     &.sticky-bottom-right {
       bottom: 0;
-      right: $sidenav-x-offset;
+      right: $sidenav-min-width;
     }
   }
 }

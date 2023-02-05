@@ -23,11 +23,8 @@ import { ThemesActions, ThemesSelectors } from '@/ui/app-state';
   `,
 })
 export class SideNavComponent implements OnInit, OnDestroy {
-  @HostBinding('class.min') get hostMinimize() {
-    return this.minimize;
-  }
+  @HostBinding('class.min') minimize = false;
   destroy$ = new Subject<void>();
-  minimize = false;
   toggleIcon = faAngleLeft;
 
   constructor(private store: Store) {}

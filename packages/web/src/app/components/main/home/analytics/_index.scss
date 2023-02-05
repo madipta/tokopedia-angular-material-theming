@@ -42,7 +42,9 @@
 
     section.stats-chart {
       margin-top: 24px;
+      overflow: hidden;
       position: relative;
+      width: 90%;
     }
   }
 
