@@ -1,7 +1,11 @@
 import { enableProdMode, importProvidersFrom } from '@angular/core';
 import { bootstrapApplication } from '@angular/platform-browser';
 import { provideAnimations } from '@angular/platform-browser/animations';
-import { RouterModule } from '@angular/router';
+import {
+  provideRouter,
+  withDebugTracing,
+  withRouterConfig,
+} from '@angular/router';
 import { provideEffects } from '@ngrx/effects';
 import { provideRouterStore } from '@ngrx/router-store';
 import { provideStore } from '@ngrx/store';
@@ -19,12 +23,13 @@ if (environment.production) {
 
 bootstrapApplication(AppComponent, {
   providers: [
-    importProvidersFrom(
-      RouterModule.forRoot(appRoutes),
-      AppModule,
-      SidenavModule
-    ),
+    importProvidersFrom(AppModule, SidenavModule),
     provideAnimations(),
+    provideRouter(
+      appRoutes,
+      withDebugTracing(),
+      withRouterConfig({ paramsInheritanceStrategy: 'always' })
+    ),
     provideStore({ Themes: ThemesFeature.themesReducer }),
     provideRouterStore(),
     provideStoreDevtools(),
