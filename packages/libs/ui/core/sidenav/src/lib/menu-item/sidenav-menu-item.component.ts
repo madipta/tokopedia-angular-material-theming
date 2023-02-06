@@ -6,7 +6,7 @@ import {
   OnDestroy,
   OnInit,
 } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { select, Store } from '@ngrx/store';
@@ -48,6 +48,11 @@ export class SideNavMenuItemComponent implements OnDestroy, OnInit {
   }
 
   ngOnInit(): void {
+    this.router.events.pipe(takeUntil(this.destroy$)).subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.active = event.url === '/' + this.link;
+      }
+    });
     this.store
       .pipe(takeUntil(this.destroy$))
       .pipe(select(ThemesSelectors.isSideNavMinimize))

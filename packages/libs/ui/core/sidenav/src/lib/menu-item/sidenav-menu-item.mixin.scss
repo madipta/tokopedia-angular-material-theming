@@ -7,9 +7,9 @@
   $foreground-color-palette: map.get($color-config, foreground);
   $primary-color-palette: map.get($color-config, primary);
 
-  ui-sidenav-menu-item {
+  ui-sidenav-menu-item.sidenav-menu-item {
     &.active {
-      div.item {
+      > div.item {
         border-color: mat.get-color-from-palette($primary-color-palette, 500);
         color: mat.get-color-from-palette($primary-color-palette, 700);
 
@@ -19,7 +19,7 @@
       }
     }
 
-    div.item {
+    > div.item {
       color: mat.get-color-from-palette($foreground-color-palette, text);
 
       &:hover {
