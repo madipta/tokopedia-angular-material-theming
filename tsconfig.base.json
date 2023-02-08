@@ -32,7 +32,8 @@
         "packages/libs/ui/components/shop-info/src/index.ts"
       ],
       "@/ui/core/dashboard": ["packages/libs/ui/core/dashboard/src/index.ts"],
-      "@/ui/core/sidenav": ["packages/libs/ui/core/sidenav/src/index.ts"]
+      "@/ui/core/sidenav": ["packages/libs/ui/core/sidenav/src/index.ts"],
+      "@/ui/home": ["packages/libs/ui/home/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

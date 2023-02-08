@@ -1,0 +1,54 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+@use './card/' as card;
+
+@mixin color($theme) {
+  $color-config: mat.get-color-config($theme);
+  $foreground-color-palette: map.get($color-config, foreground);
+
+  @include card.color($theme);
+
+  ui-analytics {
+    display: block;
+    margin-bottom: 32px;
+
+    > h3.title {
+      color: mat.get-color-from-palette($foreground-color-palette, text);
+      font-size: 1.3rem;
+      font-weight: 600;
+      line-height: normal;
+      margin: 0 0 4px;
+      padding: 0;
+    }
+
+    > h4.subtitle {
+      color: mat.get-color-from-palette(
+        $foreground-color-palette,
+        secondary-text
+      );
+      font-size: 0.86rem;
+      line-height: normal;
+      margin: 0 0 8px;
+      padding: 0;
+    }
+
+    section.product {
+      display: grid;
+      grid-auto-rows: 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 4px;
+      width: 90%;
+    }
+
+    section.stats-chart {
+      margin-top: 24px;
+      overflow: hidden;
+      position: relative;
+      width: 90%;
+    }
+  }
+
+  .activity-tooltip {
+    font-size: 0.8rem;
+  }
+}

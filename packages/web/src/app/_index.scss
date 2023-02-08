@@ -4,7 +4,7 @@
 @use 'chat-toolbar.mixin' as chat-toolbar;
 @use 'info-bar.mixin' as infoBar;
 @use 'primary-bar.mixin' as primaryBar;
-@use './components/main/home/' as home;
+@use 'home.mixin' as home;
 @use 'sidenav.mixin' as sidenav;
 
 @mixin color($theme) {

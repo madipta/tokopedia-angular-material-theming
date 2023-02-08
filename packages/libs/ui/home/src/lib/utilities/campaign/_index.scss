@@ -1,0 +1,11 @@
+@use './flash-sale/' as flashSale;
+@use './promo/' as promo;
+
+@mixin color($theme) {
+  @include flashSale.color($theme);
+  @include promo.color($theme);
+
+  ui-campaign {
+    margin-bottom: 16px;
+  }
+}

@@ -1,0 +1,54 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+
+@mixin color($theme) {
+  $color-config: mat.get-color-config($theme);
+  $foreground-color-palette: map.get($color-config, foreground);
+
+  ui-updates {
+    display: block;
+    margin-bottom: 32px;
+
+    mat-card-content.mat-mdc-card-content {
+      align-items: center;
+      display: flex;
+      gap: 24px;
+
+      div.title {
+        flex: 1 1 0%;
+
+        h4 {
+          color: mat.get-color-from-palette(
+            $foreground-color-palette,
+            text
+          );
+          font-size: 1rem;
+          font-weight: 600;
+          line-height: normal;
+          margin: 0 0 8px;
+        }
+
+        p {
+          color: mat.get-color-from-palette(
+            $foreground-color-palette,
+            hint-text
+          );
+          line-height: normal;
+          margin: 0;
+        }
+      }
+
+      fa-icon.info-icon {
+        color: mat.get-color-from-palette(
+          $foreground-color-palette,
+          icon
+        );
+        font-size: 4rem;
+      }
+
+      button {
+        padding: 0 24px;
+      }
+    }
+  }
+}

@@ -1,15 +1,9 @@
 import { enableProdMode, importProvidersFrom } from '@angular/core';
 import { bootstrapApplication } from '@angular/platform-browser';
 import { provideAnimations } from '@angular/platform-browser/animations';
-import {
-  provideRouter,
-  withDebugTracing,
-  withRouterConfig,
-} from '@angular/router';
+import { provideRouter } from '@angular/router';
 import { provideEffects } from '@ngrx/effects';
-import { provideRouterStore } from '@ngrx/router-store';
 import { provideStore } from '@ngrx/store';
-import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { ThemesFeature } from '@/ui/app-state';
 import { SidenavModule } from '@/ui/core/sidenav';
 import { AppComponent } from './app/app.component';
@@ -25,14 +19,8 @@ bootstrapApplication(AppComponent, {
   providers: [
     importProvidersFrom(AppModule, SidenavModule),
     provideAnimations(),
-    provideRouter(
-      appRoutes,
-      withDebugTracing(),
-      withRouterConfig({ paramsInheritanceStrategy: 'always' })
-    ),
+    provideRouter(appRoutes),
     provideStore({ Themes: ThemesFeature.themesReducer }),
-    provideRouterStore(),
-    provideStoreDevtools(),
     provideEffects(),
   ],
 }).catch((err) => console.error(err));

@@ -22,7 +22,8 @@
             "packages/libs/ui/components/info-bar/src/lib/styles",
             "packages/libs/ui/components/primary-bar/src/lib/styles",
             "packages/libs/ui/core/sidenav/src/lib/styles",
-            "packages/libs/ui/core/dashboard/src/lib/styles"
+            "packages/libs/ui/core/dashboard/src/lib/styles",
+            "packages/libs/ui/home/src/lib/styles"
           ]
         },
         "scripts": []

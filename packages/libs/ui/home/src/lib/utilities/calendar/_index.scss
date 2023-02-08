@@ -1,0 +1,97 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+
+@mixin color($theme) {
+  $color-config: mat.get-color-config($theme);
+  $background-color-palette: map.get($color-config, background);
+  $foreground-color-palette: map.get($color-config, foreground);
+
+  ui-calendar {
+    display: flex;
+    flex-direction: column;
+
+    div.header {
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+      margin: 0 0 16px;
+      padding: 0;
+      width: 100%;
+
+      > h4.title {
+        color: mat.get-color-from-palette($foreground-color-palette, text);
+        flex: 1 1 0%;
+        font-size: 0.94rem;
+        font-weight: 600;
+        line-height: normal;
+        margin: 0 0 2px;
+      }
+    }
+
+    ul.main {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      li {
+        align-items: flex-start;
+        border-bottom: 1px solid
+          mat.get-color-from-palette($foreground-color-palette, divider);
+        display: flex;
+        gap: 16px;
+        margin-bottom: 12px;
+        padding-bottom: 16px;
+
+        &:last-child {
+          border: none;
+          margin-bottom: 0;
+        }
+
+        div.date {
+          color: mat.get-color-from-palette($foreground-color-palette, secondary-text);
+          text-align: center;
+
+          div.day {
+            font-size: 1.1rem;
+            font-weight: 600;
+            line-height: normal;
+          }
+
+          div.month {
+            font-size: .7rem;
+            line-height: normal;
+          }
+        }
+
+        div.description {
+          h5 {
+            font-size: .9rem;
+            font-weight: 600;
+            margin-bottom: 2px;
+          }
+
+          p {
+            color: mat.get-color-from-palette($foreground-color-palette, secondary-text);
+            font-size: .8rem;
+            line-height: 1rem;
+            margin-bottom: 4px;
+          }
+
+          span.category {
+            background-color: mat.get-color-from-palette($background-color-palette, app-bar);
+            border-radius: 2px;
+            color: mat.get-color-from-palette($foreground-color-palette, secondary-text);
+            font-size: .7rem;
+            padding: 4px 8px;
+          }
+        }
+      }
+    }
+
+    mat-card-content.mat-card-content {
+      .mat-form-field-type-mat-date-range-input .mat-form-field-infix {
+        width: 140px;
+      }
+    }
+  }
+}
