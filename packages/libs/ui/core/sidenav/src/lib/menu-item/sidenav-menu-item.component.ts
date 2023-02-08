@@ -5,6 +5,7 @@ import {
   Input,
   OnDestroy,
   OnInit,
+  ViewEncapsulation,
 } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -14,6 +15,7 @@ import { Subject, takeUntil } from 'rxjs';
 import { ThemesSelectors } from '@/ui/app-state';
 
 @Component({
+  encapsulation: ViewEncapsulation.None,
   imports: [CommonModule, FontAwesomeModule],
   selector: 'ui-sidenav-menu-item',
   standalone: true,
@@ -22,7 +24,7 @@ import { ThemesSelectors } from '@/ui/app-state';
     <div class="item" (click)="itemClick()">
       <span class="wrapper" [ngClass]="{ active }">
         <fa-icon [icon]="icon" *ngIf="icon"></fa-icon>
-        <span>{{ caption }}</span>
+        <span class="item-caption">{{ caption }}</span>
       </span>
     </div>
   `,

@@ -11,6 +11,7 @@
     cursor: pointer;
     display: flex;
     padding-right: 3px;
+    position: relative;
 
     .wrapper {
       align-items: center;
@@ -45,7 +46,7 @@
   &.minimize {
     > .folder {
 
-      .wrapper {
+      > .wrapper {
         align-items: center;
         display: flex;
         flex-direction: column;

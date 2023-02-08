@@ -31,4 +31,21 @@
       }
     }
   }
+
+  .mat-mdc-menu-panel {
+    ui-sidenav-menu-item.sidenav-menu-item.minimize {
+      > .item {
+        > .wrapper {
+          align-items: start;
+          padding: 8px 16px 8px 8px;
+          
+          .item-caption {
+            max-height: max-content;
+            opacity: 1;
+            width: auto;
+          }
+        }
+      }
+    }
+  }
 }

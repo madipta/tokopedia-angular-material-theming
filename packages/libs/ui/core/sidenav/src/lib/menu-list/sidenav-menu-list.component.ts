@@ -1,25 +1,16 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { IconProp } from '@fortawesome/fontawesome-svg-core';
+import { ISideNavMenu } from '../interfaces';
 import { SideNavMenuDividerComponent } from '../menu-divider/sidenav-menu-divider.component';
-import { SideNavMenuFolderComponent } from '../menu-folder/sidenav-menu-folder.component';
 import { SideNavMenuItemComponent } from '../menu-item/sidenav-menu-item.component';
-
-export interface ISideNavMenu {
-  type: 'Divider' | 'Folder' | 'Item';
-  active?: boolean;
-  caption?: string;
-  icon?: IconProp;
-  link?: string;
-  children?: ISideNavMenu[];
-}
+import { SideNavMenuFolderComponent } from '../menu-folder/sidenav-menu-folder.component';
 
 @Component({
   imports: [
     CommonModule,
     SideNavMenuDividerComponent,
-    SideNavMenuFolderComponent,
     SideNavMenuItemComponent,
+    SideNavMenuFolderComponent,
   ],
   selector: 'ui-sidenav-menu-list',
   standalone: true,
@@ -29,8 +20,8 @@ export interface ISideNavMenu {
       <ui-sidenav-menu-folder 
         *ngIf="item.type === 'Folder'"
         [caption]="item.caption!"
+        [children]="item.children!"
         [icon]="item.icon">
-        <ui-sidenav-menu-list [config]="item.children!" />
       </ui-sidenav-menu-folder>
       <ui-sidenav-menu-item 
         *ngIf="item.type === 'Item'" 

@@ -1,4 +1,4 @@
-:host {
+ui-sidenav-menu-item {
   display: block;
   font-size: 0.78rem;
   width: 100%;
@@ -39,7 +39,7 @@
   &.minimize {
     > .item {
 
-      .wrapper {
+      > .wrapper {
         align-items: center;
         display: flex;
         flex-direction: column;

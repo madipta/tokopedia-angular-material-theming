@@ -7,7 +7,6 @@
   border-right-width: 1px;
   bottom: 0px;
   left: 0px;
-  overflow: hidden;
   position: fixed;
   top: $sidenav-top;
   transition: width 0.3s 0.2s ease-out;
@@ -36,7 +35,6 @@
     display: flex;
     flex-direction: column;
     height: calc(100vh - $sidenav-top);
-    overflow-x: hidden;
     overflow-y: auto;
     padding-top: 36px;
     transition: width 0.3s ease;
