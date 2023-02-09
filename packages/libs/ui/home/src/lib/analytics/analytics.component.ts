@@ -1,4 +1,11 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  NgZone,
+  ViewChild,
+  ViewEncapsulation,
+} from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 import Chart from 'chart.js/auto';
@@ -38,63 +45,68 @@ import { AnalyticCardComponent } from './card/card.component';
           ></ui-analytic-card>
         </section>
         <section class="stats-chart">
-          <canvas id="stats-chart-canvas">{{ chart }}</canvas>
+          <canvas #canvas></canvas>
         </section>
       </mat-card-content>
     </mat-card>
   `,
   encapsulation: ViewEncapsulation.None,
 })
-export class AnalyticsComponent implements OnInit {
+export class AnalyticsComponent implements AfterViewInit {
+  @ViewChild('canvas', { static: false }) canvas!: ElementRef;
   chart?: Chart;
   infoIcon = faInfoCircle;
   title = 'Analisis toko dan produkmu';
   subTitle = '15 Juni 2022 11:00 WIB';
 
-  ngOnInit() {
-    this.chart = new Chart('stats-chart-canvas', {
-      type: 'line',
-      data: {
-        labels: [
-          '28 Jun',
-          '29 Jun',
-          '30 Jun',
-          '1 Jul',
-          '2 Jul',
-          '3 Jul',
-          '4 Jul',
-        ],
-        datasets: [
-          {
-            data: [0, 0, 0, 0, 0, 0, 0],
-            borderColor: '#4caf50',
-            fill: false,
-            borderWidth: 3,
-          },
-        ],
-      },
-      options: {
-        plugins: {
-          legend: {
-            display: false,
-          },
+  constructor(private zone: NgZone) {}
+
+  ngAfterViewInit(): void {
+    this.zone.runOutsideAngular(() => {
+      this.chart = new Chart(this.canvas.nativeElement, {
+        type: 'line',
+        data: {
+          labels: [
+            '28 Jun',
+            '29 Jun',
+            '30 Jun',
+            '1 Jul',
+            '2 Jul',
+            '3 Jul',
+            '4 Jul',
+          ],
+          datasets: [
+            {
+              data: [3, 5, 2, 7, 1, 1, 3],
+              borderColor: '#4caf50',
+              fill: false,
+              borderWidth: 3,
+            },
+          ],
         },
-        scales: {
-          x: {
-            grid: {
+        options: {
+          plugins: {
+            legend: {
               display: false,
             },
           },
-          y: {
-            grid: {
-              display: false,
+          scales: {
+            x: {
+              grid: {
+                display: false,
+              },
             },
-            ticks: {
-              stepSize: 1,
+            y: {
+              grid: {
+                display: false,
+              },
+              ticks: {
+                stepSize: 1,
+              },
             },
           },
         },
-      },
+      });
     });
   }
 }
