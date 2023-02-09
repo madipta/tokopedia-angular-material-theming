@@ -1,8 +1,9 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { AdvertisementComponent } from './advertisement/advertisement.component';
 import { EmptyComponent } from './empty/empty.component';
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [AdvertisementComponent, EmptyComponent],
   selector: 'ui-stock-info',
   standalone: true,
@@ -10,6 +11,5 @@ import { EmptyComponent } from './empty/empty.component';
     <ui-stock-info-empty></ui-stock-info-empty>
     <ui-stock-info-adv></ui-stock-info-adv>
   `,
-  encapsulation: ViewEncapsulation.None
 })
 export class StockInfoComponent {}

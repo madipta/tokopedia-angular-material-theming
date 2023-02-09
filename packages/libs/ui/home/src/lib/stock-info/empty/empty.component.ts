@@ -1,9 +1,10 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [MatButtonModule, MatCardModule, MatTableModule],
   selector: 'ui-stock-info-empty',
   standalone: true,
@@ -34,7 +35,6 @@ import { MatTableModule } from '@angular/material/table';
       </mat-card-actions>
     </mat-card>
   `,
-  encapsulation: ViewEncapsulation.None,
 })
 export class EmptyComponent {
   displayedColumns: string[] = ['name', 'stock'];

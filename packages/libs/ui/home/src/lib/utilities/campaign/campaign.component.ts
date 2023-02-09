@@ -1,10 +1,11 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatTabsModule } from '@angular/material/tabs';
 import { FlashSaleComponent } from './flash-sale/flash-sale.component';
 import { PromoComponent } from './promo/promo.component';
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [FlashSaleComponent, MatCardModule, MatTabsModule, PromoComponent],
   selector: 'ui-campaign',
   standalone: true,
@@ -23,6 +24,5 @@ import { PromoComponent } from './promo/promo.component';
       </mat-card-content>
     </mat-card>
   `,
-  encapsulation: ViewEncapsulation.None,
 })
 export class CampaignComponent {}

@@ -1,11 +1,17 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, ViewEncapsulation } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  ViewEncapsulation,
+} from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.None,
   imports: [CommonModule, FontAwesomeModule, MatCardModule, MatTooltipModule],
   selector: 'ui-analytic-card',
   standalone: true,
@@ -15,7 +21,7 @@ import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
         >{{ caption }}
         <fa-icon
           class="info-icon"
-          [icon]="infoIcon"
+          icon="info-circle"
           [matTooltip]="tooltip"
           matTooltipClass="tp-tooltip"
         ></fa-icon
@@ -24,10 +30,8 @@ import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
       <mat-card-content>{{ detail }}</mat-card-content>
     </mat-card>
   `,
-  encapsulation: ViewEncapsulation.None,
 })
 export class AnalyticCardComponent {
-  infoIcon = faInfoCircle;
   @Input() caption = '';
   @Input() description = '';
   @Input() detail = '';

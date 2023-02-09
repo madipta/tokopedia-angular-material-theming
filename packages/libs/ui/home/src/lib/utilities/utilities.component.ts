@@ -1,10 +1,11 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CalendarComponent } from './calendar/calendar.component';
 import { CampaignComponent } from './campaign/campaign.component';
 import { NewsComponent } from './news/news.component';
 import { RecomendationsComponent } from './recomendations/recomendations.component';
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     CalendarComponent,
     CampaignComponent,
@@ -21,6 +22,5 @@ import { RecomendationsComponent } from './recomendations/recomendations.compone
     <ui-news></ui-news>
     <ui-calendar></ui-calendar>
   `,
-  encapsulation: ViewEncapsulation.None,
 })
 export class UtilitiesComponent {}

@@ -6,10 +6,11 @@ import { provideEffects } from '@ngrx/effects';
 import { provideStore } from '@ngrx/store';
 import { ThemesFeature } from '@/ui/app-state';
 import { SidenavModule } from '@/ui/core/sidenav';
+import { HomeModule } from '@/ui/home';
 import { AppComponent } from './app/app.component';
+import { AppModule } from './app/app.module';
 import { appRoutes } from './app/app.router';
 import { environment } from './environments/environment';
-import { AppModule } from './app/app.module';
 
 if (environment.production) {
   enableProdMode();
@@ -17,7 +18,7 @@ if (environment.production) {
 
 bootstrapApplication(AppComponent, {
   providers: [
-    importProvidersFrom(AppModule, SidenavModule),
+    importProvidersFrom(AppModule, HomeModule, SidenavModule),
     provideAnimations(),
     provideRouter(appRoutes),
     provideStore({ Themes: ThemesFeature.themesReducer }),

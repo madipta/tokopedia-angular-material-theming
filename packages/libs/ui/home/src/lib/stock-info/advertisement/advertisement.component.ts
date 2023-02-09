@@ -1,7 +1,8 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [MatCardModule],
   selector: 'ui-stock-info-adv',
   standalone: true,
@@ -18,6 +19,5 @@ import { MatCardModule } from '@angular/material/card';
       </mat-card-actions>
     </mat-card>
   `,
-  encapsulation: ViewEncapsulation.None
 })
 export class AdvertisementComponent {}

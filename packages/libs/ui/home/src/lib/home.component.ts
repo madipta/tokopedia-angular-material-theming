@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { ActivitiesComponent } from './activities/activities.component';
 import { AnalyticsComponent } from './analytics/analytics.component';
 import { PerformancesComponent } from './performances/performances.component';
@@ -7,6 +7,7 @@ import { UpdatesComponent } from './updates/updates.component';
 import { UtilitiesComponent } from './utilities/utilities.component';
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     ActivitiesComponent,
     AnalyticsComponent,

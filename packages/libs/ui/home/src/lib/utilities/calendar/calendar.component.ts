@@ -1,10 +1,11 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     MatCardModule,
     MatDatepickerModule,
@@ -71,7 +72,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
       </mat-card-content>
     </mat-card>
   `,
-  encapsulation: ViewEncapsulation.None,
 })
 export class CalendarComponent {
   end = new Date(2022, 6, 15);

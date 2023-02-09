@@ -1,7 +1,8 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { ActivityComponent } from './activity/activity.component';
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [ActivityComponent],
   selector: 'ui-activities',
   standalone: true,
@@ -41,7 +42,6 @@ import { ActivityComponent } from './activity/activity.component';
       ></ui-activity>
     </section>
   `,
-  encapsulation: ViewEncapsulation.None
 })
 export class ActivitiesComponent {
   title = 'Penting hari ini';

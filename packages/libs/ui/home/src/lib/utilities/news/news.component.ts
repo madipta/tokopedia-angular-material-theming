@@ -1,16 +1,17 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import {
-  faBusinessTime,
-  faCity,
-  faVault,
-} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
-  imports: [FontAwesomeModule, MatCardModule, MatFormFieldModule, MatSelectModule],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [
+    FontAwesomeModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatSelectModule,
+  ],
   selector: 'ui-news',
   standalone: true,
   template: `
@@ -28,7 +29,7 @@ import {
         </div>
         <ul>
           <li>
-            <div class="image"><fa-icon [icon]="image1Icon"></fa-icon></div>
+            <div class="image"><fa-icon icon="business-time"></fa-icon></div>
             <div class="description">
               <h5 class="title">
                 [Khusus Official Store] Hanya 5 Menit! Bikin Kupon TokoMember
@@ -38,7 +39,7 @@ import {
             </div>
           </li>
           <li>
-            <div class="image"><fa-icon [icon]="image2Icon"></fa-icon></div>
+            <div class="image"><fa-icon icon="city"></fa-icon></div>
             <div class="description">
               <h5 class="title">
                 BARU! Bikin Program TokoMember Kini Hanya 3 Langkah
@@ -48,7 +49,7 @@ import {
             </div>
           </li>
           <li>
-            <div class="image"><fa-icon [icon]="image3Icon"></fa-icon></div>
+            <div class="image"><fa-icon icon="vault"></fa-icon></div>
             <div class="description">
               <h5 class="title">
                 Secepat Kilat! Begini Cara Ikut Program Loyalitas TokoMember
@@ -61,10 +62,5 @@ import {
       </mat-card-content>
     </mat-card>
   `,
-  encapsulation: ViewEncapsulation.None
 })
-export class NewsComponent {
-  image1Icon = faBusinessTime;
-  image2Icon = faCity;
-  image3Icon = faVault;
-}
+export class NewsComponent {}

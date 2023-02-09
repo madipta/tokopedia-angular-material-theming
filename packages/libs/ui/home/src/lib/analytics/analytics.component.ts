@@ -1,17 +1,17 @@
 import {
   AfterViewInit,
+  ChangeDetectionStrategy,
   Component,
   ElementRef,
   NgZone,
   ViewChild,
-  ViewEncapsulation,
 } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
-import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 import Chart from 'chart.js/auto';
 import { AnalyticCardComponent } from './card/card.component';
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [AnalyticCardComponent, MatCardModule],
   selector: 'ui-analytics',
   standalone: true,
@@ -50,12 +50,10 @@ import { AnalyticCardComponent } from './card/card.component';
       </mat-card-content>
     </mat-card>
   `,
-  encapsulation: ViewEncapsulation.None,
 })
 export class AnalyticsComponent implements AfterViewInit {
   @ViewChild('canvas', { static: false }) canvas!: ElementRef;
   chart?: Chart;
-  infoIcon = faInfoCircle;
   title = 'Analisis toko dan produkmu';
   subTitle = '15 Juni 2022 11:00 WIB';
 
