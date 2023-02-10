@@ -7,16 +7,14 @@ import {
   ViewChild,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
 import { MatMenuModule, MatMenuTrigger } from '@angular/material/menu';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
-import { Store, select } from '@ngrx/store';
-import { ThemesSelectors } from '@/ui/app-state';
 import { Subject, takeUntil } from 'rxjs';
 import { ISideNavMenu } from '../interfaces';
 import { SideNavMenuDividerComponent } from '../menu-divider/sidenav-menu-divider.component';
 import { SideNavMenuItemComponent } from '../menu-item/sidenav-menu-item.component';
+import { SideNavService } from '../sidenav.service';
 
 @Component({
   imports: [
@@ -84,7 +82,6 @@ export class SideNavMenuFolderComponent implements OnDestroy, OnInit {
   @Input() children: ISideNavMenu[] = [];
   @Input() icon?: IconProp;
   @ViewChild('menuTrigger') trigger!: MatMenuTrigger;
-  moreIcon = 'faAngleDown';
   destroy$ = new Subject<void>();
 
   itemClick() {
@@ -94,7 +91,7 @@ export class SideNavMenuFolderComponent implements OnDestroy, OnInit {
     }
   }
 
-  constructor(private router: Router, private store: Store) {}
+  constructor(private service: SideNavService) {}
 
   ngOnDestroy(): void {
     this.destroy$.next();
@@ -102,11 +99,8 @@ export class SideNavMenuFolderComponent implements OnDestroy, OnInit {
   }
 
   ngOnInit(): void {
-    this.store
-      .pipe(takeUntil(this.destroy$))
-      .pipe(select(ThemesSelectors.isSideNavMinimize))
-      .subscribe((res) => {
-        this.minimize = res;
-      });
+    this.service.minimize$.pipe(takeUntil(this.destroy$)).subscribe((res) => {
+      this.minimize = res;
+    });
   }
 }

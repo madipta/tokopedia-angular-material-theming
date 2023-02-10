@@ -5,3 +5,4 @@ export * from './lib/menu-list/sidenav-menu-list.component';
 export * from './lib/interfaces';
 export * from './lib/sidenav.component';
 export * from './lib/sidenav.module';
+export * from './lib/sidenav.service';

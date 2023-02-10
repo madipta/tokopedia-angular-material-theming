@@ -10,9 +10,8 @@ import {
 import { NavigationEnd, Router } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
-import { select, Store } from '@ngrx/store';
 import { Subject, takeUntil } from 'rxjs';
-import { ThemesSelectors } from '@/ui/app-state';
+import { SideNavService } from '../sidenav.service';
 
 @Component({
   encapsulation: ViewEncapsulation.None,
@@ -42,7 +41,7 @@ export class SideNavMenuItemComponent implements OnDestroy, OnInit {
     this.router.navigate([this.link]);
   }
 
-  constructor(private router: Router, private store: Store) {}
+  constructor(private router: Router, private service: SideNavService) {}
 
   ngOnDestroy(): void {
     this.destroy$.next();
@@ -55,11 +54,8 @@ export class SideNavMenuItemComponent implements OnDestroy, OnInit {
         this.active = event.url === '/' + this.link;
       }
     });
-    this.store
-      .pipe(takeUntil(this.destroy$))
-      .pipe(select(ThemesSelectors.isSideNavMinimize))
-      .subscribe((res) => {
-        this.minimize = res;
-      });
+    this.service.minimize$.pipe(takeUntil(this.destroy$)).subscribe((res) => {
+      this.minimize = res;
+    });
   }
 }

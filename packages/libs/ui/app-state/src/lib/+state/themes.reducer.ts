@@ -10,15 +10,6 @@ export const initialState: ThemesState = {
   sidenavMinimize: false,
 };
 
-// export const themesFeature = createFeature({
-//   name: THEMES_FEATURE_KEY,
-//   reducer: createReducer(
-//     initialState,
-//     on(ThemesActions.changeTheme, (state, { theme }) => ({ ...state, theme })),
-//     on(ThemesActions.toggleSideNav, (state) => ({ ...state, sidenavMinimize: !state.sidenavMinimize }))
-//   )
-// });
-
 export const themesReducer = createReducer(
   initialState,
   on(ThemesActions.changeTheme, (state, { theme }) => ({ ...state, theme })),

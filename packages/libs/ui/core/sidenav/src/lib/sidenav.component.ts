@@ -2,10 +2,8 @@ import { CommonModule } from '@angular/common';
 import { Component, HostBinding, OnDestroy, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faAngleLeft } from '@fortawesome/free-solid-svg-icons';
-import { select, Store } from '@ngrx/store';
 import { Subject, takeUntil } from 'rxjs';
-import { ThemesActions, ThemesSelectors } from '@/ui/app-state';
+import { SideNavService } from './sidenav.service';
 
 @Component({
   imports: [CommonModule, FontAwesomeModule, MatButtonModule],
@@ -15,7 +13,7 @@ import { ThemesActions, ThemesSelectors } from '@/ui/app-state';
   template: `
     <nav class="sidenav">
       <button class="toggle" (click)="toggle()" mat-button>
-        <fa-icon class="toggle-icon" [icon]="toggleIcon"></fa-icon>
+        <fa-icon class="toggle-icon" icon="angle-left"></fa-icon>
         <span class="menu-text"> minimize </span>
       </button>
       <ng-content></ng-content>
@@ -25,9 +23,8 @@ import { ThemesActions, ThemesSelectors } from '@/ui/app-state';
 export class SideNavComponent implements OnInit, OnDestroy {
   @HostBinding('class.min') minimize = false;
   destroy$ = new Subject<void>();
-  toggleIcon = faAngleLeft;
 
-  constructor(private store: Store) {}
+  constructor(private service: SideNavService) {}
 
   ngOnDestroy(): void {
     this.destroy$.next();
@@ -35,17 +32,12 @@ export class SideNavComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.store
-      .pipe(select(ThemesSelectors.isSideNavMinimize))
+    this.service.minimize$
       .pipe(takeUntil(this.destroy$))
-      .subscribe((res) => {
-        this.minimize = res;
-      });
+      .subscribe((res) => (this.minimize = res));
   }
 
   toggle() {
-    this.store.dispatch(
-      ThemesActions.toggleSideNav({ sidenavMinimize: !this.minimize })
-    );
+    this.service.toggleSideNav();
   }
 }

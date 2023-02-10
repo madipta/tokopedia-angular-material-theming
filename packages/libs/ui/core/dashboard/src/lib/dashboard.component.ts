@@ -6,10 +6,8 @@ import {
   OnInit,
   ViewEncapsulation,
 } from '@angular/core';
-import { SideNavComponent } from '@/ui/core/sidenav';
-import { select, Store } from '@ngrx/store';
+import { SideNavComponent, SideNavService } from '@/ui/core/sidenav';
 import { Subject, takeUntil } from 'rxjs';
-import { ThemesSelectors } from '@/ui/app-state';
 
 @Component({
   encapsulation: ViewEncapsulation.None,
@@ -33,7 +31,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
   @HostBinding('class.min') minimize = true;
   destroy$ = new Subject<void>();
 
-  constructor(private store: Store) {}
+  constructor(private sideNavService: SideNavService) {}
 
   ngOnDestroy(): void {
     this.destroy$.next();
@@ -41,8 +39,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.store
-      .pipe(select(ThemesSelectors.isSideNavMinimize))
+    this.sideNavService.minimize$
       .pipe(takeUntil(this.destroy$))
       .subscribe((res) => {
         this.minimize = !res;

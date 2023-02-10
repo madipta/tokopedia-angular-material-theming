@@ -9,9 +9,8 @@ import {
   faTv,
   faUser,
 } from '@fortawesome/free-solid-svg-icons';
-import { select, Store } from '@ngrx/store';
 import { Subject, takeUntil } from 'rxjs';
-import { ThemesActions, ThemesSelectors } from '@/ui/app-state';
+import { DashboardService } from '@/ui/core/dashboard';
 
 @Component({
   imports: [CommonModule, FontAwesomeModule],
@@ -67,17 +66,19 @@ export class InfoBarComponent implements OnInit, OnDestroy {
   socialIcon = faUser;
   videoIcon = faTv;
 
-  constructor(private renderer: Renderer2, private store: Store) {}
+  constructor(
+    private renderer: Renderer2,
+    private dashboardService: DashboardService
+  ) {}
 
   ngOnDestroy(): void {
     this.destroy$.next();
-    this.destroy$.complete();
+    this.destroy$.unsubscribe();
   }
 
   ngOnInit(): void {
-    this.store
+    this.dashboardService.theme$
       .pipe(takeUntil(this.destroy$))
-      .pipe(select(ThemesSelectors.getSelectedTheme))
       .subscribe((res) => {
         this.changeTheme(res);
       });
@@ -93,6 +94,6 @@ export class InfoBarComponent implements OnInit, OnDestroy {
   }
 
   toggleTheme(theme: string) {
-    this.store.dispatch(ThemesActions.changeTheme({ theme }));
+    this.dashboardService.toggleTheme(theme);
   }
 }

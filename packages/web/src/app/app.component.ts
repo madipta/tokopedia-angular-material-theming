@@ -1,7 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { Store } from '@ngrx/store';
-import { ThemesActions } from '@/ui/app-state';
 import { ChatToolbarComponent } from '@/ui/components/chat-toolbar';
 import { InfoBarComponent } from '@/ui/components/info-bar';
 import { PrimaryBarComponent } from '@/ui/components/primary-bar';
@@ -36,7 +34,7 @@ import { ISideNavMenu, SideNavMenuListComponent } from '@/ui/core/sidenav';
     </ui-dashboard>
   `,
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   config: ISideNavMenu[] = [
     { type: 'Item', caption: 'Home', icon: 'home', link: 'home' },
     { type: 'Item', caption: 'Chat', icon: 'message', link: 'chat' },
@@ -132,10 +130,4 @@ export class AppComponent implements OnInit {
       ],
     },
   ];
-
-  constructor(private store: Store) {}
-
-  ngOnInit(): void {
-    this.store.dispatch(ThemesActions.init());
-  }
 }
