@@ -12,6 +12,7 @@ $light-theme: mat.define-light-theme(
       primary: $my-primary-palette,
       accent: $my-accent-palette,
       warn: $my-warn-palette,
+      density: -4,
     )
   )
 );

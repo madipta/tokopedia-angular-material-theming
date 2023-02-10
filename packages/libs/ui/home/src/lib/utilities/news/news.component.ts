@@ -21,9 +21,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
           <h4 class="title">Bacaan terkini</h4>
           <mat-form-field>
             <mat-select value="1">
-              <mat-option value="1">Artikel</mat-option>
-              <mat-option value="2">Info</mat-option>
-              <mat-option value="3">Aktifitas</mat-option>
+              <mat-option value="1" class="news-option">Artikel</mat-option>
+              <mat-option value="2" class="news-option">Info</mat-option>
+              <mat-option value="3" class="news-option">Aktifitas</mat-option>
             </mat-select>
           </mat-form-field>
         </div>

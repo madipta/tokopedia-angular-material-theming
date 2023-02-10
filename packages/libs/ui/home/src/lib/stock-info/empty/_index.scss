@@ -16,21 +16,22 @@
       }
 
       th.mat-mdc-header-cell {
-        &.mat-column-name {
+        font-size: 0.8em;
+        &:nth-child(1) {
           padding-left: 6px;
           text-align: left;
         }
-        &.mat-column-stock {
+        &:nth-child(2) {
           padding-right: 6px;
           text-align: center;
         }
       }
 
       td.mat-mdc-cell {
-        &.mat-column-name, &.mat-column-stock {
-          padding: 2px 6px;
-        }
-        &.mat-column-stock {
+        font-size: 0.8em;
+        padding: 2px 6px;
+
+        &:nth-child(2) {
           color: mat.get-color-from-palette($warn-color-palette, 600);
           font-weight: 600;
           text-align: center;

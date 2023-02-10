@@ -6,7 +6,7 @@
   $foreground-color-palette: map.get($color-config, foreground);
   $primary-color-palette: map.get($color-config, primary);
 
-ui-news {
+  ui-news {
     display: flex;
     flex-direction: column;
     margin-bottom: 16px;
@@ -28,11 +28,18 @@ ui-news {
         }
 
         mat-form-field {
-          .mat-form-field-infix {
+          .mat-mdc-form-field-infix {
+            font-size: .9rem;
+            min-height: 0;
+            padding: 4px 0 !important;
             width: auto;
           }
 
-          .mat-select-arrow {
+          .mat-mdc-form-field-subscript-wrapper {
+            display: none;
+          }
+
+          .mat-mdc-select-arrow {
             margin-left: 10px;
           }
         }
@@ -88,5 +95,11 @@ ui-news {
         }
       }
     }
+  }
+  
+  mat-option.mat-mdc-option.news-option {
+    font-size: .9rem;
+    min-height: 0;
+    padding: 4px 16px;
   }
 }
