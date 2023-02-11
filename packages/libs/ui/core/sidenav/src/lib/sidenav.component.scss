@@ -9,7 +9,7 @@
   left: 0px;
   position: fixed;
   top: $sidenav-top;
-  transition: width 0.3s 0.2s ease-out;
+  transition: width 0.3s ease-out;
   width: $sidenav-max-width;
   z-index: 1000;
 
