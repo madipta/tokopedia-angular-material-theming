@@ -14,7 +14,7 @@ import { PromoComponent } from './promo/promo.component';
       <mat-card-title>Campaign yang bisa kamu ikuti</mat-card-title>
       <mat-card-content>
         <mat-tab-group mat-align-tabs="start">
-          <mat-tab label="Flash sale">
+          <mat-tab label="Flash Sale">
             <ui-flash-sale></ui-flash-sale>
           </mat-tab>
           <mat-tab label="Promo Tokopedia">

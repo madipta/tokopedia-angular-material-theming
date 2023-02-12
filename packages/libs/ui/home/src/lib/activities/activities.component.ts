@@ -7,8 +7,8 @@ import { ActivityComponent } from './activity/activity.component';
   selector: 'ui-activities',
   standalone: true,
   template: `
-    <h3 class="title">{{ title }}</h3>
-    <h4 class="subtitle">{{ subTitle }}</h4>
+    <h3 class="home-title">{{ title }}</h3>
+    <h4 class="home-subtitle">{{ subTitle }}</h4>
     <section class="activities">
       <ui-activity
         caption="Pesanan baru"

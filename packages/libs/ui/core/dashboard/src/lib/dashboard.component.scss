@@ -32,8 +32,7 @@ ui-dashboard {
 
     section.main-content {
       height: calc(100vh - $header-y-offset);
-      overflow-x: hidden;
-      overflow-y: auto;
+      overflow: auto;
       padding: 16px;
     }
   }

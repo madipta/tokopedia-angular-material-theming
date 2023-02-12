@@ -10,34 +10,12 @@
 
   ui-analytics {
     display: block;
-    margin-bottom: 32px;
-
-    > h3.title {
-      color: mat.get-color-from-palette($foreground-color-palette, text);
-      font-size: 1.3rem;
-      font-weight: 600;
-      line-height: normal;
-      margin: 0 0 4px;
-      padding: 0;
-    }
-
-    > h4.subtitle {
-      color: mat.get-color-from-palette(
-        $foreground-color-palette,
-        secondary-text
-      );
-      font-size: 0.86rem;
-      line-height: normal;
-      margin: 0 0 8px;
-      padding: 0;
-    }
 
     section.product {
       display: grid;
       grid-auto-rows: 1fr;
       grid-template-columns: 1fr 1fr 1fr;
-      gap: 4px;
-      width: 90%;
+      gap: 8px;
     }
 
     section.stats-chart {

@@ -11,7 +11,6 @@ import { MatCardModule } from '@angular/material/card';
     <mat-card>
       <mat-card-title>Produk terlaris di tempatmu</mat-card-title>
       <mat-card-content>
-        <div class="spacer"></div>
         <h5>Belum ada produk yang terjual, nih</h5>
         <p>Yuk, buat produk di tokomu makin laris dengan iklan terbaik!</p>
       </mat-card-content>

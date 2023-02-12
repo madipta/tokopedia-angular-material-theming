@@ -15,12 +15,14 @@ import { RecomendationsComponent } from './recomendations/recomendations.compone
   selector: 'ui-utilities',
   standalone: true,
   template: `
-    <h3 class="title">Keperluan untuk jualanmu</h3>
-    <h4 class="subtitle">Cek semuanya untuk tingkatkan performa toko</h4>
-    <ui-campaign></ui-campaign>
-    <ui-recomendations></ui-recomendations>
-    <ui-news></ui-news>
-    <ui-calendar></ui-calendar>
+    <h3 class="home-title">Keperluan untuk jualanmu</h3>
+    <h4 class="home-subtitle">Cek semuanya untuk tingkatkan performa toko</h4>
+    <section class="main">
+      <ui-campaign></ui-campaign>
+      <ui-recomendations></ui-recomendations>
+      <ui-news></ui-news>
+      <ui-calendar></ui-calendar>
+    </section>
   `,
 })
 export class UtilitiesComponent {}

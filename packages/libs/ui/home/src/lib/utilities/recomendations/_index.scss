@@ -8,7 +8,6 @@
   $warn-color-palette: map.get($color-config, warn);
 
   ui-recomendations {
-    margin-bottom: 16px;
 
     > mat-card.mat-mdc-card {
       > mat-card-title.mat-mdc-card-title {
@@ -29,8 +28,8 @@
         li {
           border-bottom: 1px solid
             mat.get-color-from-palette($foreground-color-palette, divider);
-          margin: 0 16px 4px;
-          padding-bottom: 12px;
+          margin: 0 0 4px;
+          padding: 0 0 12px;
 
           &:last-child {
             border: none;
@@ -41,8 +40,9 @@
               $foreground-color-palette,
               secondary-text
             );
-            font-size: 0.76rem;
-            margin: 0 0 4px;
+            font-size: .8rem;
+            font-weight: 500;
+            margin: 0;
             padding: 0;
           }
 
@@ -50,10 +50,10 @@
             align-items: center;
             display: flex;
             gap: 8px;
-            margin-bottom: 4px;
+            margin: 2px 0 4px;
 
             p {
-              font-size: 0.94rem;
+              font-size: .85rem;
               font-weight: 600;
               margin-bottom: 0;
             }

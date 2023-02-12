@@ -6,6 +6,12 @@
   @include promo.color($theme);
 
   ui-campaign {
-    margin-bottom: 16px;
+    mat-tab-header.mat-mdc-tab-header {
+      font-size: .9rem;
+    }
+
+    .mat-mdc-tab-body-content {
+      height: auto;
+    }
   }
 }

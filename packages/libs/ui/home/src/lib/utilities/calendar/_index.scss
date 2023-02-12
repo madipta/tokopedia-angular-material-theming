@@ -9,6 +9,33 @@
   ui-calendar {
     display: flex;
     flex-direction: column;
+    
+    > div.header {
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+      padding: 0;
+      width: 100%;
+    }
+
+    .mdc-text-field {
+      padding-right: 4px !important;
+    }
+
+    .mat-mdc-form-field-type-mat-date-range-input .mat-mdc-form-field-infix {
+      font-size: .9rem;
+      min-height: 0;
+      padding-bottom: 8px !important;
+      padding-right: 8px;
+      padding-top: 8px !important;
+      width: auto;
+    }
+
+    .mdc-icon-button {
+      padding: 0 16px 0 0;
+      width: 24px;
+      height: 24px;
+    }
 
     div.header {
       align-items: center;
@@ -30,7 +57,7 @@
 
     ul.main {
       list-style: none;
-      margin: 0;
+      margin: 16px 0 0 0;
       padding: 0;
 
       li {
@@ -48,7 +75,10 @@
         }
 
         div.date {
-          color: mat.get-color-from-palette($foreground-color-palette, secondary-text);
+          color: mat.get-color-from-palette(
+            $foreground-color-palette,
+            secondary-text
+          );
           text-align: center;
 
           div.day {
@@ -58,39 +88,52 @@
           }
 
           div.month {
-            font-size: .7rem;
+            font-size: 0.7rem;
             line-height: normal;
           }
         }
 
         div.description {
           h5 {
-            font-size: .9rem;
+            font-size: 0.9rem;
             font-weight: 600;
             margin-bottom: 2px;
           }
 
           p {
-            color: mat.get-color-from-palette($foreground-color-palette, secondary-text);
-            font-size: .8rem;
+            color: mat.get-color-from-palette(
+              $foreground-color-palette,
+              secondary-text
+            );
+            font-size: 0.8rem;
             line-height: 1rem;
             margin-bottom: 4px;
           }
 
           span.category {
-            background-color: mat.get-color-from-palette($background-color-palette, app-bar);
+            background-color: mat.get-color-from-palette(
+              $background-color-palette,
+              app-bar
+            );
             border-radius: 2px;
-            color: mat.get-color-from-palette($foreground-color-palette, secondary-text);
-            font-size: .7rem;
+            color: mat.get-color-from-palette(
+              $foreground-color-palette,
+              secondary-text
+            );
+            font-size: 0.7rem;
             padding: 4px 8px;
           }
         }
       }
     }
 
-    mat-card-content.mat-card-content {
+    mat-card-content.mat-mdc-card-content {
       .mat-form-field-type-mat-date-range-input .mat-form-field-infix {
-        width: 140px;
+        width: auto;
+      }
+
+      .mat-mdc-form-field-subscript-wrapper {
+        display: none;
       }
     }
   }

@@ -16,8 +16,8 @@ import { AnalyticCardComponent } from './card/card.component';
   selector: 'ui-analytics',
   standalone: true,
   template: `
-    <h3 class="title">{{ title }}</h3>
-    <h4 class="subtitle">
+    <h3 class="home-title">{{ title }}</h3>
+    <h4 class="home-subtitle">
       Update terakhir: <b>{{ subTitle }}</b>
     </h4>
     <mat-card class="outer-card">

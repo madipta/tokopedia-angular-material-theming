@@ -26,8 +26,10 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
           matTooltipClass="tp-tooltip"
         ></fa-icon
       ></mat-card-subtitle>
-      <mat-card-title>{{ description }}</mat-card-title>
-      <mat-card-content>{{ detail }}</mat-card-content>
+      <mat-card-content>
+        <div class="description">{{ description }}</div>
+        <div class="detail">{{ detail }}</div>
+      </mat-card-content>
     </mat-card>
   `,
 })

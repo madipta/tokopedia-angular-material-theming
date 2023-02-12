@@ -8,53 +8,59 @@
   $warn-color-palette: map.get($color-config, warn);
 
   ui-flash-sale {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    margin: 16px;
-    overflow: hidden;
+    display: block;
+    padding: 16px 0;
 
-    > div.flash-sale-row {
+    > .row {
       align-items: center;
+      border-bottom: 1px solid
+        mat.get-color-from-palette($foreground-color-palette, divider);
       display: flex;
       gap: 16px;
-      padding-top: 16px;
+      padding: 16px 0;
+
+      &:last-child {
+        border: none;
+      }
 
       > fa-icon {
         color: mat.get-color-from-palette($primary-color-palette);
+        flex: none;
         font-size: 3rem;
       }
 
-      div.flash-sale-detail {
-        display: flex;
-        flex-direction: column;
+      > .detail {
+        flex: 1 1 0%;
 
         h5 {
-          font-size: .86rem;
-          font-weight: 600;
-          margin-bottom: 0;
+          font-size: 0.85rem;
+          font-weight: 500;
         }
 
         p {
-          color: mat.get-color-from-palette($foreground-color-palette, secondary-text);
-          font-size: .8rem;
-          margin-bottom: 4px;
+          color: mat.get-color-from-palette(
+            $foreground-color-palette,
+            secondary-text
+          );
+          font-size: 0.8rem;
+          margin-bottom: 8px;
         }
 
-        div.flash-sale-time {
-          align-items: center;
-          font-size: .7rem;
-          flex-shrink: 1;
+        .time {
 
           > span {
-            background-color: mat.get-color-from-palette($warn-color-palette, 100);
+            background-color: mat.get-color-from-palette(
+              $warn-color-palette,
+              100
+            );
             border-radius: 2px;
             color: mat.get-color-from-palette($warn-color-palette);
-            padding: 2px 4px;
-          }
+            font-size: 0.7rem;
+            padding: 4px 6px;
 
-          b {
-            padding-left: 4px;
+            b {
+              padding-left: 4px;
+            }
           }
         }
       }

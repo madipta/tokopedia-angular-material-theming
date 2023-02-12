@@ -8,29 +8,8 @@
 
   @include activity.color($theme);
 
-ui-activities {
+  ui-activities {
     display: block;
-    margin-bottom: 32px;
-
-    h3.title {
-      color: mat.get-color-from-palette($foreground-color-palette, text);
-      font-size: 1.3rem;
-      font-weight: 600;
-      line-height: normal;
-      margin: 0 0 4px;
-      padding: 0;
-    }
-
-    h4.subtitle {
-      color: mat.get-color-from-palette(
-        $foreground-color-palette,
-        secondary-text
-      );
-      font-size: 0.86rem;
-      line-height: normal;
-      margin: 0 0 16px;
-      padding: 0;
-    }
 
     section.activities {
       display: grid;

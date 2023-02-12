@@ -28,7 +28,32 @@
     > section.main {
       border-right: 1px solid
         mat.get-color-from-palette($foreground-color-palette, divider);
+      display: flex;
+      flex-direction: column;
+      gap: 36px;
+      padding-bottom: 32px;
       padding-right: 16px;
+    }
+
+    h3.home-title {
+      color: mat.get-color-from-palette($foreground-color-palette, text);
+      font-size: 1.3rem;
+      font-weight: 600;
+      line-height: normal;
+      margin: 0 0 2px;
+      padding: 0;
+    }
+
+    h4.home-subtitle {
+      color: mat.get-color-from-palette(
+        $foreground-color-palette,
+        secondary-text
+      );
+      font-size: 0.8rem;
+      font-weight: 500;
+      line-height: normal;
+      margin: 0 0 12px;
+      padding: 0;
     }
   }
 }

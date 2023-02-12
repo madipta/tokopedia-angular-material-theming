@@ -13,16 +13,13 @@
         justify-content: center;
       }
 
-      > mat-card-content {
-        align-items: center;
+      > mat-card-content.mat-mdc-card-content {
         display: flex;
         flex-direction: column;
+        gap: 8px;
         height: 100%;
-
-        div.spacer {
-          flex: 1 1 0%;
-        }
-
+        justify-content: center;
+        
         h5,
         p {
           text-align: center;
@@ -30,8 +27,8 @@
 
         h5 {
           color: mat.get-color-from-palette($foreground-color-palette, text);
-          font-size: 0.94rem;
-          font-weight: 600;
+          font-size: .85rem;
+          font-weight: 500;
         }
 
         p {
@@ -39,6 +36,7 @@
             $foreground-color-palette,
             secondary-text
           );
+          font-size: .8rem;
         }
       }
     }
