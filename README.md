@@ -1,3 +1,7 @@
+
+FOR MODULE FEDERATION 
+GO TO https://github.com/madipta/toped-seller-module-federation
+
 # tokopedia seller home dashboard clone (light/dark theme)
 
 this project built with nx monorepo, angular material, fort-awesome and ngrx  
